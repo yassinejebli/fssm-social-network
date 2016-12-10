@@ -23,6 +23,11 @@ Route::post('/postLogin',[
     'as' => 'postLogin'
 ]);
 
+Route::post('/postSignUp',[
+    'uses' => 'UserController@postSignUp',
+    'as' => 'postSignUp'
+]);
+
 Route::get('/stageadd',function (){
     return view('stage');
 })->name('stageadd');

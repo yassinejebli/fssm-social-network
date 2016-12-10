@@ -46,21 +46,21 @@
   <main class="signin-wrapper">
     <div class="tab-content">
       <p class="text-center p-4x">
-        <img src="images/logo/brand-text-color.png" alt="wrapkit" height="28px">
+        {{--<img src="images/logo/brand-text-color.png" alt="wrapkit" height="28px">--}}
       </p>
       <div class="tab-pane fade in active" id="signin">
-        <form id="signinForm" action="http://bentkwek.com/items/preview/wrapkit/1.2/index.html" role="form">
-          <p class="lead">Login to your account</p>
+        <form id="signinForm" action="{{ route('signin') }}" role="form" method="post">
+          <p class="lead">Se Connecter à votre compte</p>
           <div class="form-group">
             <div class="input-group input-group-in">
               <span class="input-group-addon"><i class="icon-user"></i></span>
-              <input name="username" id="username" class="form-control" placeholder="Username">
+              <input name="email" id="username" class="form-control" placeholder="Email">
             </div>
           </div><!-- /.form-group -->
           <div class="form-group">
             <div class="input-group input-group-in">
               <span class="input-group-addon"><i class="icon-lock"></i></span>
-              <input type="password" name="passwd" id="passwd" class="form-control" placeholder="Password">
+              <input type="password" name="password" id="password" class="form-control" placeholder="Mot de passe">
             </div>
           </div><!-- /.form-group -->
           <div class="form-group clearfix">
@@ -69,14 +69,14 @@
             </div>
             <div class="nice-checkbox nice-checkbox-inline">
               <input type="checkbox" name="keepSignin" id="keepSignin" checked="checked">
-              <label for="keepSignin">Keep me sign in</label>
+              <label for="keepSignin">Me rappeler</label>
             </div>
           </div><!-- /.form-group -->
 
           <hr>
 
-          <p><a href="#recoverAccount" data-toggle="modal">Can't Access your Account?</a></p>
-          <p class="lead">Signin with another account?</p>
+          <p><a href="#recoverAccount" data-toggle="modal">Porblème de connexion?</a></p>
+          <p class="lead">Se connecter avec un autre compte?</p>
           <div class="signin-alt">
             <a href="#" class="btn btn-sm btn-success"><i class="fa fa-facebook"></i></a>
             <a href="#" class="btn btn-sm btn-info"><i class="fa fa-twitter"></i></a>
@@ -86,12 +86,13 @@
 
           <hr>
 
-          <p>Don't have a account? <a href="#signup" data-toggle="tab">Creata one</a></p>
+          <p>Vous n'avez pas encore de comte? <a href="#signup" data-toggle="tab">Inscrivez-vous</a></p>
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
         </form><!-- /#signinForm -->
       </div><!-- /.tab-pane -->
 
       <div class="tab-pane fade" id="signup">
-        <form id="signupForm" action="http://bentkwek.com/items/preview/wrapkit/1.2/index.html" role="form">
+        <form id="signupForm" action="{{route('postSignUp')}}" role="form" method="post">
           <p class="lead">Créer un nouveau compte</p>
           <p class="text-muted"><strong></strong></p>
           <div class="form-group has-feedback">
@@ -101,6 +102,21 @@
               <span class="form-control-feedback"></span>
             </div>
           </div><!-- /.form-group -->
+          <div class="form-group has-feedback">
+            <div class="input-group input-group-in">
+              <span class="input-group-addon"><i class="icon-key"></i></span>
+              <input type="password" name="password" id="password" class="form-control" placeholder="Mot de passe (6 caractères minimum)">
+              <span class="form-control-feedback"></span>
+            </div>
+          </div><!-- /.form-group -->
+          <div class="form-group has-feedback">
+            <div class="input-group input-group-in">
+              <span class="input-group-addon"><i class="icon-check"></i></span>
+              <input type="password" name="cpassword" id="cpassword" class="form-control" placeholder="Confirmer mot de passe">
+              <span class="form-control-feedback"></span>
+            </div>
+          </div><!-- /.form-group -->
+
           <div class="form-group has-feedback">
             <div class="input-group input-group-in">
               <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
@@ -115,64 +131,44 @@
               <span class="form-control-feedback"></span>
             </div>
           </div><!-- /.form-group -->
-          <div class="form-group has-feedback">
-            <div class="input-group input-group-in">
-              <span class="input-group-addon"><i class="icon-location-pin"></i></span>
-              <input name="city" id="city" class="form-control" placeholder="Ville">
-              <span class="form-control-feedback"></span>
-            </div>
-          </div><!-- /.form-group -->
-          <div class="form-group has-feedback">
-            <div class="input-group input-group-in">
-              <span class="input-group-addon" title="unable to find any Country that match the current query!"><i class="icon-map"></i></span>
-              <input name="country" id="country" class="form-control" placeholder="Pays">
-              <span class="form-control-feedback"></span>
-            </div><!-- /input-group-in -->
-          </div><!-- /.form-group -->
+          {{--<div class="form-group has-feedback">--}}
+            {{--<div class="input-group input-group-in">--}}
+              {{--<span class="input-group-addon"><i class="icon-location-pin"></i></span>--}}
+              {{--<input name="city" id="city" class="form-control" placeholder="Ville">--}}
+              {{--<span class="form-control-feedback"></span>--}}
+            {{--</div>--}}
+          {{--</div><!-- /.form-group -->--}}
+          {{--<div class="form-group has-feedback">--}}
+            {{--<div class="input-group input-group-in">--}}
+              {{--<span class="input-group-addon" title="unable to find any Country that match the current query!"><i class="icon-map"></i></span>--}}
+              {{--<input name="country" id="country" class="form-control" placeholder="Pays">--}}
+              {{--<span class="form-control-feedback"></span>--}}
+            {{--</div><!-- /input-group-in -->--}}
+          {{--</div><!-- /.form-group -->--}}
           <div class="form-group">
             <label class="control-label" style="margin-right:15px">Sexe</label>
             <div class="nice-radio nice-radio-inline">
-              <input type="radio" name="gender" id="genderMale" value="male" checked="checked">
+              <input type="radio" name="gender" id="genderMale" value="m" checked="checked">
               <label for="genderMale">Masculin</label>
             </div><!-- /.radio -->
             <div class="nice-radio nice-radio-inline">
-              <input type="radio" name="gender" id="genderFemale" value="female">
+              <input type="radio" name="gender" id="genderFemale" value="f">
               <label for="genderFemale">Fiminin</label>
             </div><!-- /.radio -->
           </div><!-- /.form-group -->
 
           <hr>
 
-          <p class="text-muted"><strong>Enter les données de votre compte</strong></p>
-          <div class="form-group has-feedback">
-            <div class="input-group input-group-in">
-              <span class="input-group-addon"><i class="icon-user"></i></span>
-              <input name="usrName" id="usrName" class="form-control" placeholder="Nom d'utilisateur">
-              <span class="form-control-feedback"></span>
-            </div>
-          </div><!-- /.form-group -->
-          <div class="form-group has-feedback">
-            <div class="input-group input-group-in">
-              <span class="input-group-addon"><i class="icon-key"></i></span>
-              <input type="password" name="password" id="password" class="form-control" placeholder="Mot de passe">
-              <span class="form-control-feedback"></span>
-            </div>
-          </div><!-- /.form-group -->
-          <div class="form-group has-feedback">
-            <div class="input-group input-group-in">
-              <span class="input-group-addon"><i class="icon-check"></i></span>
-              <input type="password" name="cpassword" id="cpassword" class="form-control" placeholder="Confirmer mot de passe">
-              <span class="form-control-feedback"></span>
-            </div>
-          </div><!-- /.form-group -->
+
           <div class="form-group animated-hue clearfix">
             <div class="pull-right">
               <button type="submit" class="btn btn-primary">Créer compte</button>
             </div>
             <div class="pull-left">
-              <a href="#signin" class="btn btn-default" data-toggle="tab">Signin</a>
+              <a href="#signin" class="btn btn-default" data-toggle="tab">Se connecter</a>
             </div>
           </div><!-- /.form-group -->
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
         </form><!-- /#signupForm -->
 
         <hr>
@@ -181,7 +177,7 @@
       </div><!-- /.tab-pane -->
     </div><!-- /.tab-content -->
   </main><!--/#wrapper-->
-  <p class="signin-cr text-light">&copy; 2014 Wrapkit. with Love from Stilearning team.</p>
+  <p class="signin-cr text-light">&copy; 2016 ISI Team.</p>
 
 
   <!-- Modal Recover -->
@@ -190,19 +186,19 @@
       <div class="modal-content">
         <form id="recoverForm" action="http://bentkwek.com/items/preview/wrapkit/1.2/index.html">
           <div class="modal-header">
-            <h4 class="modal-title" id="recoverAccountLabel">Reset Password</h4>
+            <h4 class="modal-title" id="recoverAccountLabel">Réinitialiser le mot de passe</h4>
           </div>
           <div class="modal-body">
             <div class="form-group">
               <div class="input-group input-group-in">
                 <span class="input-group-addon"><i class="fa fa-envelope-o text-muted"></i></span>
-                <input type="email" name="recoverEmail" id="recoverEmail" class="form-control" placeholder="Enter your email address">
+                <input type="email" name="recoverEmail" id="recoverEmail" class="form-control" placeholder="Saisir votre adresse Email">
               </div>
             </div><!-- /.form-group -->
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Send reset link</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+            <button type="submit" class="btn btn-primary">Envoyer</button>
           </div>
         </form><!-- /#recoverForm -->
       </div><!-- /.modal-content -->
@@ -225,14 +221,14 @@
 
 
   <!-- Google Analytics: change UA-71722129-1 to be your site's ID. -->
-  <script>
-    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-    e.src='../../../../../www.google-analytics.com/analytics.js';
-    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-    ga('create','UA-71722129-1');ga('send','pageview');
-  </script>
+  {{--<script>--}}
+    {{--(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=--}}
+      {{--function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;--}}
+    {{--e=o.createElement(i);r=o.getElementsByTagName(i)[0];--}}
+    {{--e.src='../../../../../www.google-analytics.com/analytics.js';--}}
+    {{--r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));--}}
+    {{--ga('create','UA-71722129-1');ga('send','pageview');--}}
+  {{--</script>--}}
 </body>
 
 <!-- Mirrored from bentkwek.com/items/preview/wrapkit/1.2/page-signin.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 May 2016 14:02:43 GMT -->

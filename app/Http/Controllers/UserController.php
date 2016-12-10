@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exceptions\Handler;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -19,42 +20,35 @@ class UserController extends Controller
     {
         return view('login');
     }
-    public function postLogin(Request $request)
+    public function postSignIn(Request $request)
+{
+    $users = DB::collection('users_collection')->get();
+    if (Auth::attempt(['email' =>$request['email'],
+        'password' => $request["password"]])) {
+        return redirect()->route('index');
+    }
+    return redirect()->back();
+}
+
+    public function postSignUp(Request $request)
     {
+        //dd($request);
 //        $this->validate($request, [
+//            'fullName' => 'required|min:4|max:255',
 //            'email' => 'required|email'
 //        ]);
-        $data = $request->all();
-        $u = Test::where('email', $data['email'])->first();
-//        dd($data);
-        if($u && $data['password'] == $u->name){
-            return redirect('index');
-        }else{
-//            Test::create([
-//                'name' => $data['password'],
-//                'email' => $data['email']
-//            ]);
-            return view('login', ['errors' => ['erreur d\'authentification']]);
-        }
-    }
-    public function postSignIn(Request $request)
-    {
 
-//        Test::create([
-//                'email' => $request['email'],
-//                'password' => bcrypt($request['password'])
-//            ]);
-//        dd($request);
-        $users = DB::collection('users_collection')->get();
-       // dd($users);
-        //echo $request["password"];
-//        dd(Auth::attempt(['email' =>$request['email'],
-//            'password' => $request["password"]]));
-        if (Auth::attempt(['email' =>$request['email'],
-        'password' => $request["password"]])) {
-            return redirect()->route('index');
-        }
-        return redirect()->back();
+        Test::create([
+            'fullName' => $request['fullName'],
+            'password' => bcrypt($request['password']),
+
+            'email' => $request['email'],
+            'address' => $request['address'],
+            'gender' => $request['gender'],
+            ]);
+
+
+        return view('login');
     }
 
     public function logout()
