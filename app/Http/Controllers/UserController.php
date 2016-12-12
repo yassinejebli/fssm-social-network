@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use App\Test;
+
+
 class UserController extends Controller
 {
     //
@@ -38,7 +39,7 @@ class UserController extends Controller
 //            'email' => 'required|email'
 //        ]);
 
-        Test::create([
+        \App\User::create([
             'fullName' => $request['fullName'],
             'password' => bcrypt($request['password']),
 

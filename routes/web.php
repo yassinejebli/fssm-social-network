@@ -23,6 +23,7 @@ Route::post('/postLogin',[
     'as' => 'postLogin'
 ]);
 
+
 Route::post('/postSignUp',[
     'uses' => 'UserController@postSignUp',
     'as' => 'postSignUp'
@@ -31,6 +32,10 @@ Route::post('/postSignUp',[
 Route::get('/stageadd',function (){
     return view('stage');
 })->name('stageadd');
+
+Route::get('/profile',function (){
+    return view('profile');
+})->name('profile');
 
 //Route::post('/login',function () {
 //    return view('login');
@@ -60,3 +65,19 @@ Route::get('/calendar', function () {
 //Auth::routes();
 //
 //Route::get('/home', 'HomeController@index');
+
+
+//profil routes
+Route::post('/ajouterFormation',[
+    'uses' => 'FormationController@ajouterFormation',
+    'as' => 'ajouterFormation'
+]);
+Route::get('/listeFormations',[
+    'uses' => 'FormationController@listeFormations',
+    'as' => 'listeFormations'
+]);
+
+Route::delete('/supprimerFormation',[
+    'uses' => 'FormationController@supprimerFormation',
+    'as' => 'supprimerFormation'
+]);

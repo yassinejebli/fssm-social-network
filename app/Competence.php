@@ -14,69 +14,9 @@ class Competence extends Eloquent
 
     protected $collection = 'competences_collection';
 
-    /**
-     * @return mixed
-     */
-    public function getId()
+    public function user()
     {
-        return $this->id;
+        return $this->belongsTo("App\User");
     }
-
-    /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getItntitule()
-    {
-        return $this->itntitule;
-    }
-
-    /**
-     * @param mixed $itntitule
-     */
-    public function setItntitule($itntitule)
-    {
-        $this->itntitule = $itntitule;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * @param mixed $description
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCollection()
-    {
-        return $this->collection;
-    }
-
-    /**
-     * @param string $collection
-     */
-    public function setCollection($collection)
-    {
-        $this->collection = $collection;
-    }
-
 
 }

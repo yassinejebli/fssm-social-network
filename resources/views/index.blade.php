@@ -406,7 +406,7 @@
             {{--</ul>--}}
         {{--</li>--}}
         <li>
-            <a href="timeline.html">
+            <a href="{{ route('profile') }}">
                 <i class="fa fa-clock-o"></i> <span>Profil</span>
             </a>
         </li>

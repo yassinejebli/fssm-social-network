@@ -6,18 +6,18 @@ namespace App;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
 
-class Evenement extends Eloquent
+class Emploi extends Eloquent
 {
     private $id;
-    private $intitule;
-    private $date;
-    private $lieu;
-    private $type;
-    protected $collection = 'evenements_collection';
+    private $nom_entreprie;
+    private $type_contrat;
+    private $poste;
+    protected $collection = 'emplois_collection';
 
     public function user()
     {
         return $this->belongsTo("App\User");
     }
+
 
 }

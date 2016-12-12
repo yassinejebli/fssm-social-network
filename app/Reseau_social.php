@@ -14,53 +14,9 @@ class Reseau_social extends Eloquent
 
     protected $collection = 'reseau_socials_collection';
 
-    /**
-     * @return mixed
-     */
-    public function getId()
+    public function user()
     {
-        return $this->id;
+        return $this->belongsTo("App\User");
     }
-
-    /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param mixed $type
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMail()
-    {
-        return $this->mail;
-    }
-
-    /**
-     * @param mixed $mail
-     */
-    public function setMail($mail)
-    {
-        $this->mail = $mail;
-    }
-
 
 }
