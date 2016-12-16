@@ -15,8 +15,7 @@ class FormationController extends Controller
 
  public function ajouterFormation(Request $request)
  {
-   //  dd($request);
-    // Formation::create($request->all());
+     // On la formation à l'utilisateur connecté
     Auth::user()->formations()->create($request->all());
      $users = DB::collection('users_collection')->get();
   //  dd(Auth::user()->formations());
