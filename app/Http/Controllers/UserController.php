@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Input;
+use Image;
 
 
 class UserController extends Controller
@@ -38,22 +40,31 @@ class UserController extends Controller
 //            'fullName' => 'required|min:4|max:255',
 //            'email' => 'required|email'
 //        ]);
+//        if ($request->hasFile('photo')) {
+//            dd("has file");
+            //$photo = $request->file('photo');
+            $file = Input::file('photo');
+            $fileName =  null;
+            if($file){
+                $fileName = time() . '.' . $file->getClientOriginalExtension();
+                Image::make($file)->resize(300, 300)->save(public_path('uploads/avatars' . $fileName));
+            }
+            //$ext = Input::file('photo')->getClientOriginalExtension();
+            //dd($file);
 
-//        if (Request::file('photo')->isValid())
-//        {
-//            $file = Request::file('photo');
-//            dd($file);
-//        }
-
-        \App\User::create([
-            'fullName' => $request['fullName'],
-            'password' => bcrypt($request['password']),
-
-            'email' => $request['email'],
-            'address' => $request['address'],
-            'gender' => $request['gender'],
+//            $user = Auth::user();
+//            $user->$photo = $fileName;
+//            $user->save();
+            \App\User::create([
+                'fullName' => $request['fullName'],
+                'password' => bcrypt($request['password']),
+                'email' => $request['email'],
+                'address' => $request['address'],
+                'gender' => $request['gender'],
+                'photo' => $fileName,
             ]);
-
+//        }
+//        dd("no file");
 
         return view('login');
     }

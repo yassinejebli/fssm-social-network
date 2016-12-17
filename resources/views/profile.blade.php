@@ -5,7 +5,7 @@
     <div class="user-profile-tab">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs  nav-justified icon-tab">
-            <li><a href="#about-me" class="user-google-location" data-toggle="tab"><i class="fa fa-gears"></i> <span>A propos de moi</span></a>
+            <li><a href="#about-me" class="user-google-location" data-toggle="tab"><i class="fa fa-gears"></i> <span>Mon mur</span></a>
             </li>
             <li class="active"><a href="#friends" data-toggle="tab"><i class="fa fa-home"></i>
                     <span>Formation</span></a></li>
@@ -114,29 +114,123 @@
 
             <div class="tab-pane fade" id="about-me">
 
-                <div class="row">
-                    <div class="col-md-7">
-                        <h3 class="ls-header">Jonh Doe</h3>
-                        <p>
-                                                    <span class="about-me-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-                                                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                                                        Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis
-                                                        enim.
-                                                    </span>
-                        </p>
-
-                        <p>Etiam rhoncus. Maecenas tempus, tellus eget condimentum
-                            rhoncus, sem quam semper libero, sit amet adipiscing sem
-                            neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar,
-                            hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.
-                            Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-                            Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla
-                            mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat,
-                            leo eget bibendum sodales, augue velit cursus nunc.
-                        </p>
+                <div class="timeline-row">
+                    <div class="timeline-icon">
+                        <img src="assets/images/placeholder.jpg" alt="">
                     </div>
-                    <div class="col-md-5">
-                        <div id="user-locator" class="user-map-locator"></div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="panel panel-flat timeline-content">
+                                <div class="panel-heading">
+                                    <h6 class="panel-title">Himalayan sunset</h6>
+                                    <div class="heading-elements">
+                                        <span class="heading-text"><i class="icon-checkmark-circle position-left text-success"></i> 49 minutes ago</span>
+                                        <ul class="icons-list">
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="icon-arrow-down12"></i>
+                                                </a>
+
+                                                <ul class="dropdown-menu dropdown-menu-right">
+                                                    <li><a href="#"><i class="icon-user-lock"></i> Hide user posts</a></li>
+                                                    <li><a href="#"><i class="icon-user-block"></i> Block user</a></li>
+                                                    <li><a href="#"><i class="icon-user-minus"></i> Unfollow user</a></li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="#"><i class="icon-embed"></i> Embed post</a></li>
+                                                    <li><a href="#"><i class="icon-blocked"></i> Report this post</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <a class="heading-elements-toggle"><i class="icon-more"></i></a></div>
+
+                                <div class="panel-body">
+                                    <a href="#" class="display-block content-group">
+                                        <img src="assets/images/cover.jpg" class="img-responsive content-group" alt="">
+                                    </a>
+
+                                    <h6 class="content-group">
+                                        <i class="icon-comment-discussion position-left"></i>
+                                        <a href="#">Jason Ansley</a> commented:
+                                    </h6>
+
+                                    <blockquote>
+                                        <p>When suspiciously goodness labrador understood rethought yawned grew piously endearingly inarticulate oh goodness jeez trout distinct hence cobra despite taped laughed the much audacious less inside tiger groaned darn stuffily metaphoric unihibitedly inside cobra.</p>
+                                        <footer>Jason, <cite title="Source Title">10:39 am</cite></footer>
+                                    </blockquote>
+                                </div>
+
+                                <div class="panel-footer panel-footer-transparent">
+                                    <div class="heading-elements">
+                                        <ul class="list-inline list-inline-condensed heading-text">
+                                            <li><a href="#" class="text-default"><i class="icon-eye4 position-left"></i> 438</a></li>
+                                            <li><a href="#" class="text-default"><i class="icon-comment-discussion position-left"></i> 71</a></li>
+                                        </ul>
+
+                                        <span class="heading-btn pull-right">
+														<a href="#" class="btn btn-link legitRipple">Read post <i class="icon-arrow-right14 position-right"></i></a>
+													</span>
+                                    </div>
+                                    <a class="heading-elements-toggle"><i class="icon-more"></i></a></div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="panel panel-flat timeline-content">
+                                <div class="panel-heading">
+                                    <h6 class="panel-title">Diving lesson in Dubai</h6>
+                                    <div class="heading-elements">
+                                        <span class="heading-text"><i class="icon-checkmark-circle position-left text-success"></i> 3 hours ago</span>
+                                        <ul class="icons-list">
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="icon-arrow-down12"></i>
+                                                </a>
+
+                                                <ul class="dropdown-menu dropdown-menu-right">
+                                                    <li><a href="#"><i class="icon-user-lock"></i> Hide user posts</a></li>
+                                                    <li><a href="#"><i class="icon-user-block"></i> Block user</a></li>
+                                                    <li><a href="#"><i class="icon-user-minus"></i> Unfollow user</a></li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="#"><i class="icon-embed"></i> Embed post</a></li>
+                                                    <li><a href="#"><i class="icon-blocked"></i> Report this post</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <a class="heading-elements-toggle"><i class="icon-more"></i></a></div>
+
+                                <div class="panel-body">
+                                    <a href="#" class="display-block content-group">
+                                        <img src="assets/images/cover.jpg" class="img-responsive" alt="">
+                                    </a>
+
+                                    <h6 class="content-group">
+                                        <i class="icon-comment-discussion position-left"></i>
+                                        <a href="#">Melanie Watson</a> commented:
+                                    </h6>
+
+                                    <blockquote>
+                                        <p>Pernicious drooled tryingly over crud peaceful gosh yet much following brightly mallard hey gregariously far gosh until earthworm python some impala belched darn a sighed unicorn much changed and astride cat and burned grizzly when jeez wonderful the outside tedious.</p>
+                                        <footer>Melanie, <cite title="Source Title">12:56 am</cite></footer>
+                                    </blockquote>
+                                </div>
+
+                                <div class="panel-footer panel-footer-transparent">
+                                    <div class="heading-elements">
+                                        <ul class="list-inline list-inline-condensed heading-text">
+                                            <li><a href="#" class="text-default"><i class="icon-eye4 position-left"></i> 438</a></li>
+                                            <li><a href="#" class="text-default"><i class="icon-comment-discussion position-left"></i> 71</a></li>
+                                        </ul>
+
+                                        <span class="heading-btn pull-right">
+														<a href="#" class="btn btn-link legitRipple">Read post <i class="icon-arrow-right14 position-right"></i></a>
+													</span>
+                                    </div>
+                                    <a class="heading-elements-toggle"><i class="icon-more"></i></a></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

@@ -93,7 +93,7 @@
       </div><!-- /.tab-pane -->
 
       <div class="tab-pane fade" id="signup">
-        <form id="signupForm" action="{{route('postSignUp')}}" role="form" method="post">
+        <form id="signupForm" action="{{route('postSignUp')}}" role="form" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
           <p class="lead">Créer un nouveau compte</p>
           <p class="text-muted"><strong></strong></p>
           <div class="form-group has-feedback">

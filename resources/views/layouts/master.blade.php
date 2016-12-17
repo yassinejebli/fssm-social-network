@@ -252,12 +252,12 @@
                 <div class="sidebar-user-material">
                     <div class="category-content">
                         <div class="sidebar-user-material-content">
-                            <a href="#"><img src="../assets/images/makeup-skull-look.jpg" class=" img-responsive"
+                            <a href="#"><img src="uploads/avatars{{ Auth::user()->photo }}" class=" img-responsive"
                                              alt=""></a>
                             @if(Auth::check())
 
                             <h6>{{strtoupper(Auth::user()->fullName)}} </h6>
-                                <span class="text-size-small">London,UK</span>
+                                <span class="text-size-small">{{ Auth::user()->address }}</span>
                         </div>
                         @endif
 
@@ -344,7 +344,7 @@
         <!-- /main content -->
 
         <div class="footer text-muted">
-            © 2016. <a href="{{ route('index') }}">FSSM Social Network</a> by <a href="{{ route('index') }}">ISI Team</a>
+            © 2016. <a href="{{ route('index') }}">{{Auth::user()->email}}</a> by <a href="{{ route('index') }}">ISI Team</a>
         </div>
     </div>
     <!-- /page content -->
