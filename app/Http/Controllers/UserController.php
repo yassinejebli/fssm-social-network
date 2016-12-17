@@ -15,7 +15,7 @@ class UserController extends Controller
     //
     public function index(Request $request)
     {
-        return view('index');
+        return view('home');
     }
     public function seConnecter(Request $request)
     {
@@ -39,6 +39,12 @@ class UserController extends Controller
 //            'email' => 'required|email'
 //        ]);
 
+//        if (Request::file('photo')->isValid())
+//        {
+//            $file = Request::file('photo');
+//            dd($file);
+//        }
+
         \App\User::create([
             'fullName' => $request['fullName'],
             'password' => bcrypt($request['password']),
@@ -56,6 +62,11 @@ class UserController extends Controller
     {
         Auth::logout();
         return view('login');
+    }
+
+    public function getProfile()
+    {
+        return view('profile');
     }
 
 }

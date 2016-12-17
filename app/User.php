@@ -9,7 +9,7 @@ class User extends Eloquent implements Authenticatable {
 
     protected $collection = 'users_collection';
     protected $connection = 'mongodb';
-    protected  $fillable = ['password', 'email','fullName','address','gender','formations'];
+    protected  $fillable = ['password', 'email','fullName','address','gender','photo','formations','experiences'];
 
     public function formations()
     {

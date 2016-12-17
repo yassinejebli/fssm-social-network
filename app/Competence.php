@@ -8,11 +8,9 @@ use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
 class Competence extends Eloquent
 {
-    private $id;
-    private $itntitule;
-    private $description;
-
     protected $collection = 'competences_collection';
+    protected $connection = 'mongodb';
+    protected  $fillable = ['intitule'];
 
     public function user()
     {

@@ -131,21 +131,16 @@
               <input name="address" id="address" class="form-control" placeholder="Address">
               <span class="form-control-feedback"></span>
             </div>
-          </div><!-- /.form-group -->
-          {{--<div class="form-group has-feedback">--}}
-            {{--<div class="input-group input-group-in">--}}
-              {{--<span class="input-group-addon"><i class="icon-location-pin"></i></span>--}}
-              {{--<input name="city" id="city" class="form-control" placeholder="Ville">--}}
-              {{--<span class="form-control-feedback"></span>--}}
-            {{--</div>--}}
-          {{--</div><!-- /.form-group -->--}}
-          {{--<div class="form-group has-feedback">--}}
-            {{--<div class="input-group input-group-in">--}}
-              {{--<span class="input-group-addon" title="unable to find any Country that match the current query!"><i class="icon-map"></i></span>--}}
-              {{--<input name="country" id="country" class="form-control" placeholder="Pays">--}}
-              {{--<span class="form-control-feedback"></span>--}}
-            {{--</div><!-- /input-group-in -->--}}
-          {{--</div><!-- /.form-group -->--}}
+              <br>
+              <div class="form-group has-feedback">
+                  <div class="input-group input-group-in">
+                      <span class="input-group-addon"><i class="kit-avatar-128"></i></span>
+                      <input type="file" class="file-styled-primary" id="photo" name="photo">
+                      <span class="form-control-feedback"></span>
+                  </div>
+          </div>
+              <!-- /.form-group -->
+
           <div class="form-group">
             <label class="control-label" style="margin-right:15px">Sexe</label>
             <div class="nice-radio nice-radio-inline">
@@ -221,15 +216,7 @@
   <!-- END PLUGIN SETUPS -->
 
 
-  <!-- Google Analytics: change UA-71722129-1 to be your site's ID. -->
-  {{--<script>--}}
-    {{--(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=--}}
-      {{--function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;--}}
-    {{--e=o.createElement(i);r=o.getElementsByTagName(i)[0];--}}
-    {{--e.src='../../../../../www.google-analytics.com/analytics.js';--}}
-    {{--r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));--}}
-    {{--ga('create','UA-71722129-1');ga('send','pageview');--}}
-  {{--</script>--}}
+
 </body>
 
 <!-- Mirrored from bentkwek.com/items/preview/wrapkit/1.2/page-signin.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 May 2016 14:02:43 GMT -->

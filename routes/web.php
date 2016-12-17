@@ -33,9 +33,6 @@ Route::get('/stageadd',function (){
     return view('stage');
 })->name('stageadd');
 
-Route::get('/profile',function (){
-    return view('profile');
-})->name('profile');
 
 //Route::post('/login',function () {
 //    return view('login');
@@ -59,7 +56,7 @@ Route::get('/test', [
 ]);
 
 Route::get('/calendar', function () {
-    return view('calender');
+    return view('home');
 })->name('calendar');
 
 //Auth::routes();
@@ -68,6 +65,13 @@ Route::get('/calendar', function () {
 
 
 //profil routes
+Route::get('/profile',[
+    'uses' => 'UserController@getProfile',
+    'as' => 'profile',
+    'middleware' => 'auth'
+]);
+
+//formations
 Route::post('/ajouterFormation',[
     'uses' => 'FormationController@ajouterFormation',
     'as' => 'ajouterFormation'
@@ -81,3 +85,37 @@ Route::delete('/supprimerFormation',[
     'uses' => 'FormationController@supprimerFormation',
     'as' => 'supprimerFormation'
 ]);
+
+//Experiences
+Route::get('/listeExperiences',[
+    'uses' => 'ExperienceController@listeExperiences',
+    'as' => 'listeExperiences'
+]);
+
+Route::post('/ajouterExperience',[
+    'uses' => 'ExperienceController@ajouterExperience',
+    'as' => 'ajouterExperience'
+]);
+Route::delete('/supprimerExperience',[
+    'uses' => 'ExperienceController@supprimerExperience',
+    'as' => 'supprimerExperience'
+]);
+
+// Comptences
+
+Route::get('/listeCompetences',[
+    'uses' => 'CompetenceController@listeCompetences',
+    'as' => 'listeCompetences'
+]);
+
+Route::post('/ajouterCompetence',[
+    'uses' => 'CompetenceController@ajouterCompetence',
+    'as' => 'ajouterCompetence'
+]);
+
+Route::delete('/supprimerCompetence',[
+    'uses' => 'CompetenceController@supprimerCompetence',
+    'as' => 'supprimerCompetence'
+]);
+
+

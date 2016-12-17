@@ -9,35 +9,33 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Formation;
-class FormationController extends Controller
+class CompetenceController extends Controller
 {
     //
 
- public function ajouterFormation(Request $request)
+ public function ajouterCompetence(Request $request)
  {
    //  dd($request);
     // Formation::create($request->all());
-    Auth::user()->formations()->create($request->all());
-     $users = DB::collection('users_collection')->get();
-  //  dd(Auth::user()->formations());
+    Auth::user()->competences()->create($request->all());
 
      echo "1";
  }
 
-    public function listeFormations(Request $request)
+    public function listeCompetences(Request $request)
     {
         //  dd($request);
         // Formation::create($request->all());
-        $formations = Auth::user()->formations()->orderBy("anneeDepart","desc")->get();
+        $competences = Auth::user()->competences()->get();
 //dd($formations);
-        echo json_encode($formations);
+        echo json_encode($competences);
     }
 
-    public function supprimerFormation(Request $request)
+    public function supprimerCompetence(Request $request)
     {
         //  dd($request);
         // Formation::create($request->all());
-        Auth::user()->formations()->where('_id',$request->all()["formation_id"])->delete();
+        Auth::user()->competences()->where('_id',$request->all()["competence_id"])->delete();
 
         echo "1";
     }
