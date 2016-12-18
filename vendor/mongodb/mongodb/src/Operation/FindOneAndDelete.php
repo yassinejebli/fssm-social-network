@@ -2,15 +2,16 @@
 
 namespace MongoDB\Operation;
 
-use MongoDB\Driver\Command;
 use MongoDB\Driver\Server;
+use MongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use MongoDB\Exception\InvalidArgumentException;
+use MongoDB\Exception\UnsupportedException;
 
 /**
  * Operation for deleting a document with the findAndModify command.
  *
  * @api
- * @see MongoDB\Collection::findOneAndDelete()
+ * @see \MongoDB\Collection::findOneAndDelete()
  * @see http://docs.mongodb.org/manual/reference/command/findAndModify/
  */
 class FindOneAndDelete implements Executable
@@ -22,6 +23,11 @@ class FindOneAndDelete implements Executable
      *
      * Supported options:
      *
+     *  * collation (document): Collation specification.
+     *
+     *    This is not supported for server versions < 3.4 and will result in an
+     *    exception at execution time if used.
+     *
      *  * maxTimeMS (integer): The maximum amount of time to allow the query to
      *    run.
      *
@@ -31,14 +37,18 @@ class FindOneAndDelete implements Executable
      *  * sort (document): Determines which document the operation modifies if
      *    the query selects multiple documents.
      *
-     *  * writeConcern (MongoDB\Driver\WriteConcern): Write concern. This option
-     *    is only supported for server versions >= 3.2.
+     *  * typeMap (array): Type map for BSON deserialization.
+     *
+     *  * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
+     *
+     *    This is not supported for server versions < 3.2 and will result in an
+     *    exception at execution time if used.
      *
      * @param string       $databaseName   Database name
      * @param string       $collectionName Collection name
      * @param array|object $filter         Query by which to filter documents
      * @param array        $options        Command options
-     * @throws InvalidArgumentException
+     * @throws InvalidArgumentException for parameter/option parsing errors
      */
     public function __construct($databaseName, $collectionName, $filter, array $options = [])
     {
@@ -68,7 +78,9 @@ class FindOneAndDelete implements Executable
      *
      * @see Executable::execute()
      * @param Server $server
-     * @return object|null
+     * @return array|object|null
+     * @throws UnsupportedException if collation or write concern is used and unsupported
+     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      */
     public function execute(Server $server)
     {

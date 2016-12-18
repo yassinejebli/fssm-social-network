@@ -2,15 +2,16 @@
 
 namespace MongoDB\Operation;
 
-use MongoDB\Driver\Command;
 use MongoDB\Driver\Server;
+use MongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use MongoDB\Exception\InvalidArgumentException;
+use MongoDB\Exception\UnsupportedException;
 
 /**
  * Operation for updating a document with the findAndModify command.
  *
  * @api
- * @see MongoDB\Collection::findOneAndUpdate()
+ * @see \MongoDB\Collection::findOneAndUpdate()
  * @see http://docs.mongodb.org/manual/reference/command/findAndModify/
  */
 class FindOneAndUpdate implements Executable
@@ -28,6 +29,11 @@ class FindOneAndUpdate implements Executable
      *  * bypassDocumentValidation (boolean): If true, allows the write to opt
      *    out of document level validation.
      *
+     *  * collation (document): Collation specification.
+     *
+     *    This is not supported for server versions < 3.4 and will result in an
+     *    exception at execution time if used.
+     *
      *  * maxTimeMS (integer): The maximum amount of time to allow the query to
      *    run.
      *
@@ -43,18 +49,22 @@ class FindOneAndUpdate implements Executable
      *  * sort (document): Determines which document the operation modifies if
      *    the query selects multiple documents.
      *
+     *  * typeMap (array): Type map for BSON deserialization.
+     *
      *  * upsert (boolean): When true, a new document is created if no document
      *    matches the query. The default is false.
      *
-     *  * writeConcern (MongoDB\Driver\WriteConcern): Write concern. This option
-     *    is only supported for server versions >= 3.2.
+     *  * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
+     *
+     *    This is not supported for server versions < 3.2 and will result in an
+     *    exception at execution time if used.
      *
      * @param string       $databaseName   Database name
      * @param string       $collectionName Collection name
      * @param array|object $filter         Query by which to filter documents
      * @param array|object $update         Update to apply to the matched document
      * @param array        $options        Command options
-     * @throws InvalidArgumentException
+     * @throws InvalidArgumentException for parameter/option parsing errors
      */
     public function __construct($databaseName, $collectionName, $filter, $update, array $options = [])
     {
@@ -108,7 +118,9 @@ class FindOneAndUpdate implements Executable
      *
      * @see Executable::execute()
      * @param Server $server
-     * @return object|null
+     * @return array|object|null
+     * @throws UnsupportedException if collation or write concern is used and unsupported
+     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      */
     public function execute(Server $server)
     {

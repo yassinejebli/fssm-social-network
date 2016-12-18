@@ -12,7 +12,7 @@ use MongoDB\Exception\InvalidArgumentException;
  * Operation for executing a database command.
  *
  * @api
- * @see MongoDB\Database::command()
+ * @see \MongoDB\Database::command()
  */
 class DatabaseCommand implements Executable
 {
@@ -37,7 +37,7 @@ class DatabaseCommand implements Executable
      * @param string       $databaseName   Database name
      * @param array|object $command        Command document
      * @param array        $options        Options for command execution
-     * @throws InvalidArgumentException
+     * @throws InvalidArgumentException for parameter/option parsing errors
      */
     public function __construct($databaseName, $command, array $options = [])
     {

@@ -49,6 +49,10 @@ class AggregateTest extends TestCase
             $options[][] = ['bypassDocumentValidation' => $value];
         }
 
+        foreach ($this->getInvalidDocumentValues() as $value) {
+            $options[][] = ['collation' => $value];
+        }
+
         foreach ($this->getInvalidIntegerValues() as $value) {
             $options[][] = ['maxTimeMS' => $value];
         }
@@ -67,6 +71,10 @@ class AggregateTest extends TestCase
 
         foreach ($this->getInvalidBooleanValues() as $value) {
             $options[][] = ['useCursor' => $value];
+        }
+
+        foreach ($this->getInvalidWriteConcernValues() as $value) {
+            $options[][] = ['writeConcern' => $value];
         }
 
         return $options;

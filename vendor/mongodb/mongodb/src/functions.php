@@ -10,6 +10,28 @@ use MongoDB\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
+ * Applies a type map to a document.
+ *
+ * This function is used by operations where it is not possible to apply a type
+ * map to the cursor directly because the root document is a command response
+ * (e.g. findAndModify).
+ *
+ * @internal
+ * @param array|object $document Document to which the type map will be applied
+ * @param array        $typeMap  Type map for BSON deserialization.
+ * @return array|object
+ * @throws InvalidArgumentException
+ */
+function apply_type_map_to_document($document, array $typeMap)
+{
+    if ( ! is_array($document) && ! is_object($document)) {
+        throw InvalidArgumentException::invalidType('$document', $document, 'array or object');
+    }
+
+    return \MongoDB\BSON\toPHP(\MongoDB\BSON\fromPHP($document), $typeMap);
+}
+
+/**
  * Extracts an ID from an inserted document.
  *
  * This function is used when BulkWrite::insert() does not return a generated
@@ -41,6 +63,10 @@ function extract_id_from_inserted_document($document)
  */
 function generate_index_name($document)
 {
+    if ($document instanceof Serializable) {
+        $document = $document->bsonSerialize();
+    }
+
     if (is_object($document)) {
         $document = get_object_vars($document);
     }
@@ -70,6 +96,10 @@ function generate_index_name($document)
  */
 function is_first_key_operator($document)
 {
+    if ($document instanceof Serializable) {
+        $document = $document->bsonSerialize();
+    }
+
     if (is_object($document)) {
         $document = get_object_vars($document);
     }
@@ -78,9 +108,10 @@ function is_first_key_operator($document)
         throw InvalidArgumentException::invalidType('$document', $document, 'array or object');
     }
 
+    reset($document);
     $firstKey = (string) key($document);
 
-    return (isset($firstKey[0]) && $firstKey[0] == '$');
+    return (isset($firstKey[0]) && $firstKey[0] === '$');
 }
 
 /**
@@ -140,6 +171,18 @@ function server_supports_feature(Server $server, $feature)
     $minWireVersion = isset($info['minWireVersion']) ? (integer) $info['minWireVersion'] : 0;
 
     return ($minWireVersion <= $feature && $maxWireVersion >= $feature);
+}
+
+function is_string_array($input) {
+    if (!is_array($input)){
+        return false;
+    }
+    foreach($input as $item) {
+        if (!is_string($item)) {
+            return false;
+        }
+    }
+    return true;
 }
 
 /**

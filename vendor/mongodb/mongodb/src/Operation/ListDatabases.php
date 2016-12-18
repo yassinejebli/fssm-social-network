@@ -4,6 +4,7 @@ namespace MongoDB\Operation;
 
 use MongoDB\Driver\Command;
 use MongoDB\Driver\Server;
+use MongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use MongoDB\Exception\InvalidArgumentException;
 use MongoDB\Exception\UnexpectedValueException;
 use MongoDB\Model\DatabaseInfoIterator;
@@ -13,7 +14,7 @@ use MongoDB\Model\DatabaseInfoLegacyIterator;
  * Operation for the ListDatabases command.
  *
  * @api
- * @see MongoDB\Client::listDatabases()
+ * @see \MongoDB\Client::listDatabases()
  * @see http://docs.mongodb.org/manual/reference/command/ListDatabases/
  */
 class ListDatabases implements Executable
@@ -29,7 +30,7 @@ class ListDatabases implements Executable
      *    run.
      *
      * @param array $options Command options
-     * @throws InvalidArgumentException
+     * @throws InvalidArgumentException for parameter/option parsing errors
      */
     public function __construct(array $options = [])
     {
@@ -47,6 +48,7 @@ class ListDatabases implements Executable
      * @param Server $server
      * @return DatabaseInfoIterator
      * @throws UnexpectedValueException if the command response was malformed
+     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      */
     public function execute(Server $server)
     {

@@ -24,6 +24,10 @@ class FindAndModifyTest extends TestCase
         }
 
         foreach ($this->getInvalidDocumentValues() as $value) {
+            $options[][] = ['collation' => $value];
+        }
+
+        foreach ($this->getInvalidDocumentValues() as $value) {
             $options[][] = ['fields' => $value];
         }
 
@@ -45,6 +49,10 @@ class FindAndModifyTest extends TestCase
 
         foreach ($this->getInvalidDocumentValues() as $value) {
             $options[][] = ['sort' => $value];
+        }
+
+        foreach ($this->getInvalidArrayValues() as $value) {
+            $options[][] = ['typeMap' => $value];
         }
 
         foreach ($this->getInvalidDocumentValues() as $value) {

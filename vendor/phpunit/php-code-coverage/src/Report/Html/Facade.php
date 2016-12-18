@@ -94,7 +94,7 @@ class Facade
             $this->highLowerBound
         );
 
-        $directory->render($report, $target . 'index.blade.php');
+        $directory->render($report, $target . 'index.html');
         $dashboard->render($report, $target . 'dashboard.html');
 
         foreach ($report as $node) {
@@ -105,7 +105,7 @@ class Facade
                     mkdir($target . $id, 0777, true);
                 }
 
-                $directory->render($node, $target . $id . '/index.blade.php');
+                $directory->render($node, $target . $id . '/index.html');
                 $dashboard->render($node, $target . $id . '/dashboard.html');
             } else {
                 $dir = dirname($target . $id);

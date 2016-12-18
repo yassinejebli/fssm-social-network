@@ -3,13 +3,15 @@
 namespace MongoDB\Operation;
 
 use MongoDB\Driver\Server;
+use MongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use MongoDB\Exception\InvalidArgumentException;
+use MongoDB\Exception\UnsupportedException;
 
 /**
  * Operation for finding a single document with the find command.
  *
  * @api
- * @see MongoDB\Collection::findOne()
+ * @see \MongoDB\Collection::findOne()
  * @see http://docs.mongodb.org/manual/tutorial/query-documents/
  * @see http://docs.mongodb.org/manual/reference/operator/query-modifier/
  */
@@ -22,6 +24,11 @@ class FindOne implements Executable
      * Constructs a find command for finding a single document.
      *
      * Supported options:
+     *
+     *  * collation (document): Collation specification.
+     *
+     *    This is not supported for server versions < 3.4 and will result in an
+     *    exception at execution time if used.
      *
      *  * comment (string): Attaches a comment to the query. If "$comment" also
      *    exists in the modifiers document, this option will take precedence.
@@ -38,8 +45,8 @@ class FindOne implements Executable
      *
      *  * readConcern (MongoDB\Driver\ReadConcern): Read concern.
      *
-     *    For servers < 3.2, this option is ignored as read concern is not
-     *    available.
+     *    This is not supported for server versions < 3.2 and will result in an
+     *    exception at execution time if used.
      *
      *  * readPreference (MongoDB\Driver\ReadPreference): Read preference.
      *
@@ -55,7 +62,7 @@ class FindOne implements Executable
      * @param string       $collectionName Collection name
      * @param array|object $filter         Query by which to filter documents
      * @param array        $options        Command options
-     * @throws InvalidArgumentException
+     * @throws InvalidArgumentException for parameter/option parsing errors
      */
     public function __construct($databaseName, $collectionName, $filter, array $options = [])
     {
@@ -75,6 +82,8 @@ class FindOne implements Executable
      * @see Executable::execute()
      * @param Server $server
      * @return array|object|null
+     * @throws UnsupportedException if collation or read concern is used and unsupported
+     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      */
     public function execute(Server $server)
     {

@@ -6,13 +6,14 @@ use MongoDB\InsertManyResult;
 use MongoDB\Driver\BulkWrite as Bulk;
 use MongoDB\Driver\Server;
 use MongoDB\Driver\WriteConcern;
+use MongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use MongoDB\Exception\InvalidArgumentException;
 
 /**
  * Operation for inserting multiple documents with the insert command.
  *
  * @api
- * @see MongoDB\Collection::insertMany()
+ * @see \MongoDB\Collection::insertMany()
  * @see http://docs.mongodb.org/manual/reference/command/insert/
  */
 class InsertMany implements Executable
@@ -42,7 +43,7 @@ class InsertMany implements Executable
      * @param string           $collectionName Collection name
      * @param array[]|object[] $documents      List of documents to insert
      * @param array            $options        Command options
-     * @throws InvalidArgumentException
+     * @throws InvalidArgumentException for parameter/option parsing errors
      */
     public function __construct($databaseName, $collectionName, array $documents, array $options = [])
     {
@@ -90,6 +91,7 @@ class InsertMany implements Executable
      * @see Executable::execute()
      * @param Server $server
      * @return InsertManyResult
+     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      */
     public function execute(Server $server)
     {
