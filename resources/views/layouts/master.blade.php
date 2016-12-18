@@ -374,6 +374,7 @@
 
 <script type="text/javascript" src="../assets/js/core/app.js"></script>
 
+<script type="text/javascript" src="../scripts/bootstrap-select.js"></script>
 <script type="text/javascript" src="../assets/js/plugins/ui/ripple.min.js"></script>
 <script type="text/javascript" src="scripts/angular.min.js"></script>
 <script type="text/javascript">
