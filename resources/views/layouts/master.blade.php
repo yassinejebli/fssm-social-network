@@ -269,8 +269,8 @@
                     <div class="navigation-wrapper collapse" id="user-nav">
                         <ul class="navigation">
                             <li><a href="{{ route('profile') }}"><i class="icon-user-plus"></i> <span>Mon profile</span></a></li>
-                            <li><a href="#"><i class="icon-comment-discussion"></i> <span><span
-                                    class="badge bg-teal-400 pull-right">58</span> Messages</span></a></li>
+                            <li><a href="{{route('conversations')}}"><i class="icon-comment-discussion"></i> <span><span
+                                    class="badge bg-teal-400 pull-right">0</span> Messages</span></a></li>
                             <li class="divider"></li>
                             <li><a href=""><i class="icon-cog5"></i> <span>Paramétres</span></a></li>
                             <li><a href="{{ route('login') }}"><i class="icon-switch2"></i> <span>Se déconnecter</span></a></li>
