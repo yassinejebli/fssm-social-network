@@ -6,17 +6,15 @@ namespace App;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
 
-class Publication extends Eloquent
+class Langue extends Eloquent
 {
-
-    protected $collection = 'publications_collection';
+    protected $collection = 'langues_collection';
     protected $connection = 'mongodb';
-    protected  $fillable = ['contenu','image','user'];
+    protected  $fillable = ['intitule','description'];
 
     public function user()
     {
         return $this->belongsTo("App\User");
     }
-
 
 }

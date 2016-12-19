@@ -5,20 +5,21 @@
     <div class="user-profile-tab">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs  nav-justified icon-tab">
-            <li><a href="#about-me" class="user-google-location" data-toggle="tab"><i class="fa fa-gears"></i> <span>Mon mur</span></a>
+            <li class="active"><a href="#about-me" class="user-google-location" data-toggle="tab"><i
+                            class="fa fa-gears"></i> <span>Mon mur</span></a>
             </li>
-            <li class="active"><a href="#friends" data-toggle="tab"><i class="fa fa-home"></i>
+            <li><a href="#friends" data-toggle="tab"><i class="fa fa-home"></i>
                     <span>Formation</span></a></li>
             <li><a href="#job-history" data-toggle="tab"><i class="fa fa-envelope-o"></i> <span>Experience</span></a>
             </li>
             <li><a href="#competences" data-toggle="tab"><i class="fa fa-envelope-o"></i> <span>Compétences</span></a>
             </li>
-            <li><a href="#job-history" data-toggle="tab"><i class="fa fa-envelope-o"></i> <span>Langues</span></a></li>
+            <li><a href="#langues" data-toggle="tab"><i class="fa fa-envelope-o"></i> <span>Langues</span></a></li>
         </ul>
 
         <!-- Tab panes -->
         <div class="tab-content tab-border">
-            <div class="tab-pane fade in active" id="friends">
+            <div class="tab-pane fade" id="friends">
                 <div class="row pull-right">
                     <div class="col-md-12">
                         <button class="btn btn-default" data-toggle="modal" data-target="#ajouterFormationModel"><i
@@ -33,12 +34,18 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h3 class="panel-title" ng-bind="f.ecole"></h3>
-                                    <ul class="panel-note-control">
-                                        <li><a class="minus" href="javascript:void(0)"><i class="fa fa-minus"></i></a>
-                                        </li>
-                                        <li><a class="close-panel" href="javascript:void(0)"
-                                               ng-click="supprimerFormation(f)"><i class="fa fa-times"></i></a></li>
-                                    </ul>
+                                    <!--                                    <ul class="panel-note-control">-->
+                                    <!--                                        <li><a class="minus" href="javascript:void(0)"><i class="fa fa-minus"></i></a>-->
+                                    <!--                                        </li>-->
+                                    <!--                                        <li><a class="close-panel" ng-click="supprimerFormation(f)"><i class="fa fa-times"></i></a></li>-->
+                                    <!--                                    </ul>-->
+                                    <div class="heading-elements">
+                                        <ul class="icons-list">
+                                            <li><a data-action="collapse"></a></li>
+                                            <li><a data-action="reload"></a></li>
+                                            <li><a data-action="close" ng-click="supprimerFormation(f)"></a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <div class="panel-body">
                                     <div class="myEditor">
@@ -65,6 +72,40 @@
                 </div>
 
             </div>
+            <div class="tab-pane fade" id="langues">
+                <div class="row pull-right">
+                    <div class="col-md-12">
+                        <button class="btn btn-default" data-toggle="modal" data-target="#ajouterLangueModel"><i
+                                    class="fa fa-plus"></i> Ajouter
+                        </button>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:45px;">
+
+                    <div ng-repeat="l in langues">
+                        <div class="col-md-12">
+                            <div clas="panel panel-flat panel-collapsed">
+                                <div class="panel panel-white">
+                                    <div class="panel-heading">
+                                        <h6 class="panel-title">
+                                            <a data-toggle="collapse" href="#@{{l._id}}" aria-expanded="false"
+                                               class="collapsed" ng-bind="l.intitule"></a>
+                                        </h6>
+                                    </div>
+                                    <div id="@{{l._id}}" class="panel-collapse collapse" aria-expanded="false"
+                                         style="height: 0px;">
+                                        <div class="panel-body" ng-bind="l.description">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
             <div class="tab-pane fade" id="job-history">
                 <div class="row pull-right">
                     <div class="col-md-12">
@@ -73,6 +114,7 @@
                         </button>
                     </div>
                 </div>
+
                 <div class="row" style="margin-top:45px;">
 
                     <div ng-repeat="e in experiences">
@@ -80,12 +122,19 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h3 class="panel-title" ng-bind="e.poste"></h3>
-                                    <ul class="panel-note-control">
-                                        <li><a class="minus" href="javascript:void(0)"><i class="fa fa-minus"></i></a>
-                                        </li>
-                                        <li><a class="close-panel" href="javascript:void(0)"
-                                               ng-click="supprimerExperience(e)"><i class="fa fa-times"></i></a></li>
-                                    </ul>
+                                    <!--                                    <ul class="panel-note-control">-->
+                                    <!--                                        <li><a class="minus" href="javascript:void(0)"><i class="fa fa-minus"></i></a>-->
+                                    <!--                                        </li>-->
+                                    <!--                                        <li><a class="close-panel" href="javascript:void(0)"-->
+                                    <!--                                               ng-click="supprimerExperience(e)"><i class="fa fa-times"></i></a></li>-->
+                                    <!--                                    </ul>-->
+                                    <div class="heading-elements">
+                                        <ul class="icons-list">
+                                            <li><a data-action="collapse"></a></li>
+                                            <li><a data-action="reload"></a></li>
+                                            <li><a data-action="close" ng-click="supprimerExperience(e)"></a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <div class="panel-body">
                                     <div class="myEditor">
@@ -112,36 +161,39 @@
                 </div>
             </div>
 
-            <div class="tab-pane fade" id="about-me">
+            <div class="tab-pane fade  in active" id="about-me">
 
                 <div class="timeline-row">
-                    <div class="timeline-icon">
-                        <img src="assets/images/placeholder.jpg" alt="">
-                    </div>
 
                     <div class="row">
-                        <div class="col-lg-6">
+
+
+                        <div class="col-lg-12">
                             <div class="panel panel-flat timeline-content">
                                 <div class="panel-heading">
-                                    <h6 class="panel-title">Himalayan sunset</h6>
-                                    <div class="heading-elements">
-                                        <span class="heading-text"><i class="icon-checkmark-circle position-left text-success"></i> 49 minutes ago</span>
-                                        <ul class="icons-list">
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                                    <i class="icon-arrow-down12"></i>
-                                                </a>
+                                    <h6 class="panel-title">Nouvelle publication</h6>
+                                    <div class="form-group">
+                                        <img src="/uploads/avatars{{ Auth::user()->photo }}" class=" img-responsive"
+                                             alt="" width="40" height="40"/>
+                                        <textarea class="form-control" name="body" id="new-post"
+                                                  placeholder="Exprimez vous"
+                                                  rows="5" ng-model="publication.contenu"></textarea>
+                                        <button type="submit" class="btn btn-primary pull-right"
+                                                ng-click="ajouterPublication()">Publier
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                                <ul class="dropdown-menu dropdown-menu-right">
-                                                    <li><a href="#"><i class="icon-user-lock"></i> Hide user posts</a></li>
-                                                    <li><a href="#"><i class="icon-user-block"></i> Block user</a></li>
-                                                    <li><a href="#"><i class="icon-user-minus"></i> Unfollow user</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#"><i class="icon-embed"></i> Embed post</a></li>
-                                                    <li><a href="#"><i class="icon-blocked"></i> Report this post</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
+
+                        <div class="col-lg-6" ng-repeat="p in publications">
+                            <div class="panel panel-flat timeline-content">
+                                <div class="panel-heading">
+                                    <div class="heading-elements">
+                                        <span class="heading-text"><i
+                                                    class="position-left text-success" >@{{ p.created_at | date }}</i></span>
+
                                     </div>
                                     <a class="heading-elements-toggle"><i class="icon-more"></i></a></div>
 
@@ -156,76 +208,24 @@
                                     </h6>
 
                                     <blockquote>
-                                        <p>When suspiciously goodness labrador understood rethought yawned grew piously endearingly inarticulate oh goodness jeez trout distinct hence cobra despite taped laughed the much audacious less inside tiger groaned darn stuffily metaphoric unihibitedly inside cobra.</p>
-                                        <footer>Jason, <cite title="Source Title">10:39 am</cite></footer>
+                                        <p  ng-bind="p.contenu"></p>
+                                        <footer>{{Auth::user()->fullName}} <cite title="Source Title">@{{ p.created_at | date : 'HH:mm'}}</cite></footer>
                                     </blockquote>
                                 </div>
 
                                 <div class="panel-footer panel-footer-transparent">
                                     <div class="heading-elements">
                                         <ul class="list-inline list-inline-condensed heading-text">
-                                            <li><a href="#" class="text-default"><i class="icon-eye4 position-left"></i> 438</a></li>
-                                            <li><a href="#" class="text-default"><i class="icon-comment-discussion position-left"></i> 71</a></li>
-                                        </ul>
-
-                                        <span class="heading-btn pull-right">
-														<a href="#" class="btn btn-link legitRipple">Read post <i class="icon-arrow-right14 position-right"></i></a>
-													</span>
-                                    </div>
-                                    <a class="heading-elements-toggle"><i class="icon-more"></i></a></div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="panel panel-flat timeline-content">
-                                <div class="panel-heading">
-                                    <h6 class="panel-title">Diving lesson in Dubai</h6>
-                                    <div class="heading-elements">
-                                        <span class="heading-text"><i class="icon-checkmark-circle position-left text-success"></i> 3 hours ago</span>
-                                        <ul class="icons-list">
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                                    <i class="icon-arrow-down12"></i>
-                                                </a>
-
-                                                <ul class="dropdown-menu dropdown-menu-right">
-                                                    <li><a href="#"><i class="icon-user-lock"></i> Hide user posts</a></li>
-                                                    <li><a href="#"><i class="icon-user-block"></i> Block user</a></li>
-                                                    <li><a href="#"><i class="icon-user-minus"></i> Unfollow user</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#"><i class="icon-embed"></i> Embed post</a></li>
-                                                    <li><a href="#"><i class="icon-blocked"></i> Report this post</a></li>
-                                                </ul>
+                                            <li><a href="#" class="text-default"><i class="icon-eye-open position-left"></i>
+                                                    0</a></li>
+                                            <li><a href="#" class="text-default"><i
+                                                            class="icon-comment-discussion position-left"></i> 0</a>
                                             </li>
                                         </ul>
-                                    </div>
-                                    <a class="heading-elements-toggle"><i class="icon-more"></i></a></div>
-
-                                <div class="panel-body">
-                                    <a href="#" class="display-block content-group">
-                                        <img src="assets/images/cover.jpg" class="img-responsive" alt="">
-                                    </a>
-
-                                    <h6 class="content-group">
-                                        <i class="icon-comment-discussion position-left"></i>
-                                        <a href="#">Melanie Watson</a> commented:
-                                    </h6>
-
-                                    <blockquote>
-                                        <p>Pernicious drooled tryingly over crud peaceful gosh yet much following brightly mallard hey gregariously far gosh until earthworm python some impala belched darn a sighed unicorn much changed and astride cat and burned grizzly when jeez wonderful the outside tedious.</p>
-                                        <footer>Melanie, <cite title="Source Title">12:56 am</cite></footer>
-                                    </blockquote>
-                                </div>
-
-                                <div class="panel-footer panel-footer-transparent">
-                                    <div class="heading-elements">
-                                        <ul class="list-inline list-inline-condensed heading-text">
-                                            <li><a href="#" class="text-default"><i class="icon-eye4 position-left"></i> 438</a></li>
-                                            <li><a href="#" class="text-default"><i class="icon-comment-discussion position-left"></i> 71</a></li>
-                                        </ul>
 
                                         <span class="heading-btn pull-right">
-														<a href="#" class="btn btn-link legitRipple">Read post <i class="icon-arrow-right14 position-right"></i></a>
+														<a href="#" class="btn btn-link legitRipple">Read post <i
+                                                                    class="icon-arrow-right14 position-right"></i></a>
 													</span>
                                     </div>
                                     <a class="heading-elements-toggle"><i class="icon-more"></i></a></div>
@@ -245,13 +245,14 @@
                     </div>
                 </div>
 
-                    <div class="content-group">
-                        <div class="bootstrap-tagsinput">
+                <div class="content-group">
+                    <div class="bootstrap-tagsinput">
                         <div ng-repeat="c in competences">
-                        <span class="tag label label-info"><span ng-bind="c.intitule"></span><span data-role="remove" ng-click="supprimerCompetence(c)"></span></span>
-                            </div>
+                            <span class="tag label label-info"><span ng-bind="c.intitule"></span><span
+                                        data-role="remove" ng-click="supprimerCompetence(c)"></span></span>
                         </div>
                     </div>
+                </div>
 
 
             </div>
@@ -403,6 +404,75 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="ajouterPublicationModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Nouvelle Publication</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Photo</label>
+                                <input placeholder="Ex : Faculté des sciences Semlalia" ng-model="formation.ecole"
+                                       class="form-control" type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Années</label><br/>
+                                <select ng-model="formation.anneeDepart" name="anneeDepart" id="anneeDepart">
+
+                                </select> -
+                                <select name="anneeFin" ng-model="formation.anneeFin" id="anneeFin">
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Diplome</label>
+                                <input placeholder="Ex : Master en ingénierie des systèmes d'information"
+                                       ng-model="formation.diplome" class="form-control" type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Discipline</label>
+                                <input placeholder="" ng-model="formation.discipline" class="form-control" type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea ng-model="formation.description" style="min-width: 100%"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                    <button type="button" id="ajouterFormationBtn" ng-click="ajouterFormation()"
+                            class="btn btn-primary">Enregistrer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="modal fade" id="ajouterCompetenceModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -423,15 +493,58 @@
                         </div>
 
                     </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                    <button type="button" id="ajouterCompetenceBtn" ng-click="ajouterCompetence()"
-                            class="btn btn-primary">Enregistrer
-                    </button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                        <button type="button" id="ajouterCompetenceBtn" ng-click="ajouterCompetence()"
+                                class="btn btn-primary">Enregistrer
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="ajouterLangueModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Nouvelle Langue</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Intitulé du Langue</label>
+                                <input placeholder="Francais" ng-model="langue.intitule" class="form-control"
+                                       type="text"/>
+
+                                <label>Niveau</label>
+                                <select class="form-control" id="anim" ng-model="langue.description">
+                                    <option value="">--</option>
+                                    <option value="Notions">Notions</option>
+                                    <option value="Compétence professionnelle limitée">Compétence professionnelle
+                                        limitée
+                                    </option>
+                                    <option value="Capacité professionnelle complète">Capacité professionnelle
+                                        complète
+                                    </option>
+                                    <option value="Bilingue ou langue natale">Bilingue ou langue natale</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                        <button type="button" id="ajouterLangueeBtn" ng-click="ajouterLangue()"
+                                class="btn btn-primary">Enregistrer
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -443,9 +556,36 @@
                 $scope.formation = new Object({"_token": "{{ csrf_token() }}"});
                 $scope.experience = new Object({"_token": "{{ csrf_token() }}"});
                 $scope.competence = new Object({"_token": "{{ csrf_token() }}"});
+                $scope.langue = new Object({"_token": "{{ csrf_token() }}"});
+                $scope.publication = new Object({"_token": "{{ csrf_token() }}"});
                 $scope.formations = [];
                 $scope.experiences = [];
                 $scope.competences = [];
+                $scope.langues = [];
+                $scope.publications = [];
+                $scope.ajouterPublication = function () {
+                    //console.log($scope.formation);
+                    $.ajax({
+                        url: "{{route('ajouterPublication')}}",
+                        data: $scope.publication,
+                        type: "post",
+                        dataType: 'json',
+                        cache: false,
+                        async: false,
+                        success: function (result) {
+                            console.log(result);
+                            notificationFactory.success();
+                            $scope.publications.unshift(result);
+                        },
+                        error: function (error) {
+                            notificationFactory.error("Erreur lors de l'ajout de publication !", "Erreur");
+                        }
+                    });
+
+
+                    $scope.publication = new Object({"_token": "{{ csrf_token() }}"});
+
+                }
                 $scope.ajouterFormation = function () {
                     //console.log($scope.formation);
                     $.ajax({
@@ -458,6 +598,8 @@
                         success: function (result) {
                             notificationFactory.success();
                             $scope.formations.unshift($scope.formation);
+                            $("#ajouterFormationModel").modal('hide');
+
                         },
                         error: function (error) {
                             notificationFactory.error("Erreur lors de l'ajout de formation !", "Erreur");
@@ -466,6 +608,32 @@
 
 
                     $scope.formation = new Object({"_token": "{{ csrf_token() }}"});
+
+
+                }
+
+                $scope.ajouterLangue = function () {
+                    console.log($scope.langue);
+                    $.ajax({
+                        url: "{{route('ajouterLangue')}}",
+                        data: $scope.langue,
+                        type: "post",
+                        dataType: 'json',
+                        cache: false,
+                        async: false,
+                        success: function (result) {
+                            notificationFactory.success();
+                            $scope.langues.unshift($scope.langue);
+                            $("#ajouterLangueModel").modal('hide');
+
+                        },
+                        error: function (error) {
+                            notificationFactory.error("Erreur lors de l'ajout de langue !", "Erreur");
+                        }
+                    });
+
+
+                    $scope.langue = new Object({"_token": "{{ csrf_token() }}"});
 
 
                 }
@@ -482,6 +650,7 @@
                         success: function (result) {
                             notificationFactory.success();
                             $scope.experiences.unshift($scope.experience);
+                            $("#ajouterExperienceModel").modal('hide');
                         },
                         error: function (error) {
                             notificationFactory.error("Erreur lors de l'ajout d experience !", "Erreur");
@@ -558,6 +727,38 @@
                     });
                 }
 
+                $scope.getPublications = function () {
+                    $.ajax({
+                        url: "{{route('listePublications')}}",
+                        type: "get",
+                        dataType: 'json',
+                        cache: false,
+                        async: false,
+                        success: function (result) {
+                            console.log(result)
+                            for (i = 0; i < result.length; i++) {
+                                result[i].created_at = new Date(result[i].created_at);
+                            }
+                            $scope.publications = result;
+                        },
+                        error: function (error) {
+                            notificationFactory.error("Erreur lors du chargement des experiences !", "Erreur");
+                        }
+                    });
+                }
+
+                $scope.getLangues = function () {
+                    $.ajax({
+                        url: "{{route('listeLangues')}}", type: "get", dataType: 'json', cache: false, async: false,
+                        success: function (result) {
+                            console.log(result)
+                            $scope.langues = result;
+                        }, error: function (error) {
+                            notificationFactory.error("Erreur lors du chargement des experiences !", "Erreur");
+                        }
+                    });
+                }
+
                 $scope.supprimerFormation = function (item) {
                     $.ajax({
                         url: "{{route('supprimerFormation')}}",
@@ -614,9 +815,11 @@
                     });
                 }
 
+                $scope.getPublications();
                 $scope.getFormations();
                 $scope.getExperiences();
                 $scope.getCompetences();
+                $scope.getLangues();
             }]);
             angular.bootstrap(document, ['AdminModule']);
         });

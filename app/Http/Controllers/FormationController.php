@@ -17,9 +17,6 @@ class FormationController extends Controller
  {
      // On la formation à l'utilisateur connecté
     Auth::user()->formations()->create($request->all());
-     $users = DB::collection('users_collection')->get();
-  //  dd(Auth::user()->formations());
-
      echo "1";
  }
 

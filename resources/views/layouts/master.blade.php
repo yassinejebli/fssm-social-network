@@ -252,8 +252,7 @@
                 <div class="sidebar-user-material">
                     <div class="category-content">
                         <div class="sidebar-user-material-content">
-                            <a href="#"><img src="uploads/avatars{{ Auth::user()->photo }}" class=" img-responsive"
-                                             alt=""></a>
+                            <a href="#"><img src="/uploads/avatars{{ Auth::user()->photo }}" class=" img-responsive" alt=""></a>
                             @if(Auth::check())
 
                             <h6>{{strtoupper(Auth::user()->fullName)}} </h6>
@@ -344,7 +343,7 @@
         <!-- /main content -->
 
         <div class="footer text-muted">
-            © 2016. <a href="{{ route('index') }}">{{Auth::user()->email}}</a> by <a href="{{ route('index') }}">ISI Team</a>
+            © 2016. <a href="{{ route('index') }}">FSSM Social Network</a> by <a href="https://bitbucket.org/fssm/profile/members">ISI Team</a>
         </div>
     </div>
     <!-- /page content -->
@@ -380,6 +379,12 @@
 </script>
 <script type="text/javascript" src="scripts/toastr.js"></script>
 <script type="text/javascript" src="scripts/App/app.js"></script>
+
+<!--<script type="text/javascript" src="assets/js/pages/picker_date.js"></script>-->
+<script type="text/javascript" src="assets/js/plugins/pickers/pickadate/legacy.js"></script>
+
+
+
 @yield('script')
 <!--Layout Script End -->
 <!-- /theme JS files -->

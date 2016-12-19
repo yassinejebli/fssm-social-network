@@ -37,7 +37,6 @@ Route::get('/stageadd',function (){
 //Route::post('/login',function () {
 //    return view('login');
 //})->name('login');
-
 Route::post('/signin',[
     'uses' => 'UserController@postSignIn',
     'as' => 'signin'
@@ -116,6 +115,30 @@ Route::post('/ajouterCompetence',[
 Route::delete('/supprimerCompetence',[
     'uses' => 'CompetenceController@supprimerCompetence',
     'as' => 'supprimerCompetence'
+]);
+
+// Langues
+
+Route::get('/listeLangues',[
+    'uses' => 'LangueController@listeLangues',
+    'as' => 'listeLangues'
+]);
+
+Route::post('/ajouterLangue',[
+    'uses' => 'LangueController@ajouterLangue',
+    'as' => 'ajouterLangue'
+]);
+
+// Publications
+
+Route::get('/listePublications',[
+    'uses' => 'PublicationController@listePublications',
+    'as' => 'listePublications'
+]);
+
+Route::post('/ajouterPublication',[
+    'uses' => 'PublicationController@ajouterPublication',
+    'as' => 'ajouterPublication'
 ]);
 
 

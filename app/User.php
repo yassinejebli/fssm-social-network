@@ -9,7 +9,7 @@ class User extends Eloquent implements Authenticatable {
 
     protected $collection = 'users_collection';
     protected $connection = 'mongodb';
-    protected  $fillable = ['password', 'email','fullName','address','gender','photo','formations','experiences'];
+    protected  $fillable = ['password', 'email','fullName','address','gender','photo','formations','experiences','langues','publications'];
 
     public function formations()
     {
@@ -26,6 +26,10 @@ class User extends Eloquent implements Authenticatable {
         return $this->hasMany("App\Experience");
     }
 
+    public function langues()
+    {
+        return $this->hasMany("App\Langue");
+    }
     public function stages()
     {
         return $this->hasMany("App\Stage");
