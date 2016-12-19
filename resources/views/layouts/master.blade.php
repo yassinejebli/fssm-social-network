@@ -252,7 +252,7 @@
                 <div class="sidebar-user-material">
                     <div class="category-content">
                         <div class="sidebar-user-material-content">
-                            <a href="#"><img src="uploads/avatars{{ Auth::user()->photo }}" class=" img-responsive"
+                            <a href="#"><img src="/uploads/avatars{{ Auth::user()->photo }}" class=" img-responsive"
                                              alt=""></a>
                             @if(Auth::check())
 
