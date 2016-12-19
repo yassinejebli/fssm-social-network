@@ -10,16 +10,16 @@ class Message extends Eloquent
 {
     protected $collection = 'messages_collection';
     protected $connection = 'mongodb';
-    protected  $fillable = ['message','user','conversation'];
+    protected  $fillable = ['message','user','conversation_id','isSender'];
 
     public function user()
     {
         return $this->belongsTo("App\User");
     }
 
-    public function Conversation()
+    public function conversation()
     {
-        return $this->belongsTo("App\Conversation");
+        return $this->belongsTo("App\Conversation","conversation_id");
     }
 
 

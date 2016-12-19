@@ -7,7 +7,7 @@
         <!-- Search messages -->
         <div class="sidebar-category">
             <div class="category-title">
-                <span>Search messages</span>
+                <span>Rechercher un messages</span>
                 <ul class="icons-list">
                     <li><a href="#" data-action="collapse"></a></li>
                 </ul>
@@ -16,7 +16,7 @@
             <div class="category-content">
                 <form action="#">
                     <div class="has-feedback has-feedback-left">
-                        <input type="search" class="form-control" placeholder="Type and hit Enter">
+                        <input type="search" class="form-control" placeholder="Tappez un message ...">
                         <div class="form-control-feedback">
                             <i class="icon-search4 text-size-base text-muted"></i>
                         </div>
@@ -58,15 +58,8 @@
                     <li class="navigation-header">Actions</li>
                     <li><a href="#"><i class="icon-compose"></i> Compose message</a></li>
                     <li><a href="#"><i class="icon-collaboration"></i> Conference</a></li>
-                    <li><a href="#"><i class="icon-user-plus"></i> Add users <span class="label label-success">32 online</span></a></li>
-                    <li><a href="#"><i class="icon-users"></i> Create team</a></li>
+                    <li><a href="#"><i class="icon-users"></i> Créer un groupe</a></li>
                     <li class="navigation-divider"></li>
-                    <li><a href="#"><i class="icon-files-empty"></i> All messages <span class="badge badge-danger">99+</span></a></li>
-                    <li><a href="#"><i class="icon-file-plus"></i> Active discussions <span class="badge badge-default">32</span></a></li>
-                    <li><a href="#"><i class="icon-file-locked"></i> Closed discussions</a></li>
-                    <li class="navigation-header">Options</li>
-                    <li><a href="#"><i class="icon-reading"></i> Message history</a></li>
-                    <li><a href="#"><i class="icon-cog3"></i> Settings</a></li>
                 </ul>
             </div>
         </div>
@@ -74,65 +67,13 @@
 
 
         <!-- Latest updates -->
-        <div class="sidebar-category">
-            <div class="category-title">
-                <span>Latest updates</span>
-                <ul class="icons-list">
-                    <li><a href="#" data-action="collapse"></a></li>
-                </ul>
-            </div>
-
-            <div class="category-content">
-                <ul class="media-list">
-                    <li class="media">
-                        <div class="media-left"><a href="#" class="btn border-success text-success btn-flat btn-icon btn-sm btn-rounded"><i class="icon-checkmark3"></i></a></div>
-                        <div class="media-body">
-                            <a href="#">Richard Vango</a> has been registered
-                            <div class="media-annotation">4 minutes ago</div>
-                        </div>
-                    </li>
-
-                    <li class="media">
-                        <div class="media-left"><a href="#" class="btn border-slate text-slate btn-flat btn-icon btn-sm btn-rounded"><i class="icon-infinite"></i></a></div>
-                        <div class="media-body">
-                            Server went offline for monthly maintenance
-                            <div class="media-annotation">36 minutes ago</div>
-                        </div>
-                    </li>
-
-                    <li class="media">
-                        <div class="media-left"><a href="#" class="btn border-success text-success btn-flat btn-icon btn-sm btn-rounded"><i class="icon-checkmark3"></i></a></div>
-                        <div class="media-body">
-                            <a href="#">Chris Arney</a> has been registered
-                            <div class="media-annotation">2 hours ago</div>
-                        </div>
-                    </li>
-
-                    <li class="media">
-                        <div class="media-left"><a href="#" class="btn border-danger text-danger btn-flat btn-icon btn-sm btn-rounded"><i class="icon-cross2"></i></a></div>
-                        <div class="media-body">
-                            <a href="#">Chris Arney</a> left main conversation
-                            <div class="media-annotation">Dec 18, 18:36</div>
-                        </div>
-                    </li>
-
-                    <li class="media">
-                        <div class="media-left"><a href="#" class="btn border-primary text-primary btn-flat btn-icon btn-sm btn-rounded"><i class="icon-plus3"></i></a></div>
-                        <div class="media-body">
-                            <a href="#">Beatrix Diaz</a> just joined conversation
-                            <div class="media-annotation">Dec 12, 05:46</div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
         <!-- /latest updates -->
 
 
         <!-- Online users -->
         <div class="sidebar-category">
             <div class="category-title">
-                <span>Online users</span>
+                <span>Utilisteurs en lignes</span>
                 <ul class="icons-list">
                     <li><a href="#" data-action="collapse"></a></li>
                 </ul>
@@ -140,70 +81,6 @@
 
             <div class="category-content no-padding">
                 <ul class="media-list media-list-linked">
-                    <li class="media">
-                        <a href="#" class="media-link">
-                            <div class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle" alt=""></div>
-                            <div class="media-body">
-                                <span class="media-heading text-semibold">James Alexander</span>
-                                <span class="text-size-small text-muted display-block">UI/UX expert</span>
-                            </div>
-                            <div class="media-right media-middle">
-                                <span class="status-mark bg-success"></span>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li class="media">
-                        <a href="#" class="media-link">
-                            <div class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle" alt=""></div>
-                            <div class="media-body">
-                                <span class="media-heading text-semibold">Jeremy Victorino</span>
-                                <span class="text-size-small text-muted display-block">Senior designer</span>
-                            </div>
-                            <div class="media-right media-middle">
-                                <span class="status-mark bg-danger"></span>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li class="media">
-                        <a href="#" class="media-link">
-                            <div class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle" alt=""></div>
-                            <div class="media-body">
-                                <div class="media-heading"><span class="text-semibold">Jordana Mills</span></div>
-                                <span class="text-muted">Sales consultant</span>
-                            </div>
-                            <div class="media-right media-middle">
-                                <span class="status-mark bg-grey-300"></span>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li class="media">
-                        <a href="#" class="media-link">
-                            <div class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle" alt=""></div>
-                            <div class="media-body">
-                                <div class="media-heading"><span class="text-semibold">William Miles</span></div>
-                                <span class="text-muted">SEO expert</span>
-                            </div>
-                            <div class="media-right media-middle">
-                                <span class="status-mark bg-success"></span>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li class="media">
-                        <a href="#" class="media-link">
-                            <div class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle" alt=""></div>
-                            <div class="media-body">
-                                <span class="media-heading text-semibold">Margo Baker</span>
-                                <span class="text-size-small text-muted display-block">Google</span>
-                            </div>
-                            <div class="media-right media-middle">
-                                <span class="status-mark bg-success"></span>
-                            </div>
-                        </a>
-                    </li>
 
                     <li class="media">
                         <a href="#" class="media-link">
@@ -239,7 +116,7 @@
         <!-- Latest messages -->
         <div class="sidebar-category">
             <div class="category-title">
-                <span>Latest messages</span>
+                <span>Dérniers messages</span>
                 <ul class="icons-list">
                     <li><a href="#" data-action="collapse"></a></li>
                 </ul>
@@ -347,18 +224,14 @@
     <!-- Content area -->
     <div class="content">
 
-
-
+        <!-- /inside tabs -->
         <div class="tabbable tab-content-bordered content-group-lg">
             <ul class="nav nav-tabs nav-lg nav-tabs-highlight">
-                <li class="active">
-                    <a href="#james" data-toggle="tab">
-                        <img src="assets/images/placeholder.jpg" alt="" class="img-circle tab-img position-left"> James <span class="status-mark position-right border-danger"></span>
+                <li ng-class="{'active': c == conversations[0]}" ng-repeat="c in conversations">
+                    <a href="#@{{c.user2._id}}" data-toggle="tab">
+                        <img src="assets/images/placeholder.jpg" alt="" class="img-circle tab-img position-left"> @{{c.user2.fullName}} <span class="status-mark position-right border-danger"></span>
                     </a>
                 </li>
-
-
-
                 <li class="dropdown pull-right">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog7"></i> <span class="visible-xs-inline-block position-right">Options</span> <span class="caret"></span></a>
                     <ul class="dropdown-menu dropdown-menu-right">
@@ -367,93 +240,47 @@
                     </ul>
                 </li>
             </ul>
-
             <div class="tab-content">
-                <div class="tab-pane fade in active has-padding" id="james">
+                <div class="tab-pane fade in has-padding" id="@{{c.user2._id}}" ng-class="{' active': c == conversations[0]}" ng-repeat="c in conversations" >
                     <ul class="media-list chat-list content-group">
-                        <li class="media">
-                            <div class="media-left">
-                                <a href="assets/images/placeholder.jpg">
-                                    <img src="assets/images/placeholder.jpg" class="img-circle" alt="">
-                                </a>
-                            </div>
 
-                            <div class="media-body">
-                                <div class="media-content">Crud reran and while much withdrew ardent much crab hugely met dizzily that more jeez gent equivalent unsafely far one hesitant so therefore.</div>
-                                <span class="media-annotation display-block mt-10">Tue, 10:28 am <a href="#"><i class="icon-pin-alt position-right text-muted"></i></a></span>
-                            </div>
-                        </li>
 
-                        <li class="media reversed">
-                            <div class="media-body">
-                                <div class="media-content">Far squid and that hello fidgeted and when. As this oh darn but slapped casually husky sheared that cardinal hugely one and some unnecessary factiously hedgehog a feeling one rudely much</div>
-                                <span class="media-annotation display-block mt-10">Mon, 10:24 am <a href="#"><i class="icon-pin-alt position-right text-muted"></i></a></span>
-                            </div>
+                       <span ng-repeat="m in c.messages">
+                            <span ng-if="m.isSender == 'true' || m.isSender == true">
+                                 <li class="media reversed">
+                                     <div class="media-body">
+                                         <div class="media-content">@{{m.message}} </div>
+                                         <span class="media-annotation display-block mt-10">@{{m.created_at}} <a href="#"><i class="icon-pin-alt position-right text-muted"></i></a></span>
+                                     </div>
+                                     <div class="media-right">
+                                         <a href="assets/images/placeholder.jpg">
+                                             <img src="assets/images/placeholder.jpg" class="img-circle" alt="">
+                                         </a>
+                                     </div>
+                                 </li>
+                            </span>
 
-                            <div class="media-right">
-                                <a href="assets/images/placeholder.jpg">
-                                    <img src="assets/images/placeholder.jpg" class="img-circle" alt="">
-                                </a>
-                            </div>
-                        </li>
+                           <span ng-if="m.isSender != 'true' && m.isSender != true">
+                              <li class="media">
+                                  <div class="media-left">
+                                      <a href="assets/images/placeholder.jpg">
+                                          <img src="assets/images/placeholder.jpg" class="img-circle" alt="">
+                                      </a>
+                                  </div>
 
-                        <li class="media">
-                            <div class="media-left">
-                                <a href="assets/images/placeholder.jpg">
-                                    <img src="assets/images/placeholder.jpg" class="img-circle" alt="">
-                                </a>
-                            </div>
+                                  <div class="media-body">
+                                      <!--<div class="media-content">@{{c.user2.fullName}}.</div>-->
+                                      <div class="media-content">@{{m.message}}</div>
+                                      <span class="media-annotation display-block mt-10">@{{m.created_at}} <a href="#"><i class="icon-pin-alt position-right text-muted"></i></a></span>
+                                  </div>
+                              </li>
+                           </span>
 
-                            <div class="media-body">
-                                <div class="media-content">Tolerantly some understood this stubbornly after snarlingly frog far added insect into snorted more auspiciously heedless drunkenly jeez foolhardy oh.</div>
-                                <span class="media-annotation display-block mt-10">Wed, 4:20 pm <a href="#"><i class="icon-pin-alt position-right text-muted"></i></a></span>
-                            </div>
-                        </li>
+                       </span>
 
-                        <li class="media date-step content-divider">
-                            <span>New messages</span>
-                        </li>
-
-                        <li class="media reversed">
-                            <div class="media-body">
-                                <div class="media-content">Satisfactorily strenuously while sleazily dear frustratingly insect menially some shook far sardonic badger telepathic much jeepers immature much hey.</div>
-                                <span class="media-annotation display-block mt-10">2 hours ago <a href="#"><i class="icon-pin-alt position-right text-muted"></i></a></span>
-                            </div>
-
-                            <div class="media-right">
-                                <a href="assets/images/placeholder.jpg">
-                                    <img src="assets/images/placeholder.jpg" class="img-circle" alt="">
-                                </a>
-                            </div>
-                        </li>
-
-                        <li class="media">
-                            <div class="media-left">
-                                <a href="assets/images/placeholder.jpg">
-                                    <img src="assets/images/placeholder.jpg" class="img-circle" alt="">
-                                </a>
-                            </div>
-
-                            <div class="media-body">
-                                <div class="media-content">Grunted smirked and grew less but rewound much despite and impressive via alongside out and gosh easy manatee dear ineffective yikes.</div>
-                                <span class="media-annotation display-block mt-10">13 minutes ago <a href="#"><i class="icon-pin-alt position-right text-muted"></i></a></span>
-                            </div>
-                        </li>
-
-                        <li class="media reversed">
-                            <div class="media-body">
-                                <div class="media-content"><i class="icon-menu display-block"></i></div>
-                            </div>
-
-                            <div class="media-right">
-                                <a href="assets/images/placeholder.jpg">
-                                    <img src="assets/images/placeholder.jpg" class="img-circle" alt="">
-                                </a>
-                            </div>
-                        </li>
                     </ul>
 
-                    <textarea name="enter-message" class="form-control content-group" rows="3" cols="1" placeholder="Tapez votre message..."></textarea>
+                    <textarea ng-model="message.message" name="enter-message" class="form-control content-group" rows="3" cols="1" placeholder="Tapez votre message..."></textarea>
 
                     <div class="row">
                         <div class="col-xs-6">
@@ -465,15 +292,13 @@
                         </div>
 
                         <div class="col-xs-6 text-right">
-                            <button type="button" class="btn bg-teal-400 btn-labeled btn-labeled-right"><b><i class="icon-circle-right2"></i></b> Envoyer</button>
+                            <button type="button" class="btn bg-teal-400 btn-labeled btn-labeled-right" ng-click="ajouterMessage(c)"><b><i class="icon-circle-right2"></i></b> Envoyer</button>
                         </div>
                     </div>
                 </div>
 
             </div>
         </div>
-        <!-- /inside tabs -->
-
 
 
         <!-- /inside accordion -->
@@ -489,14 +314,14 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Sélectionnez un utilisateur</label>
-                                    <div class="row">
-                                    <select class="selectpicker" data-live-search="true">
-                                        <option>Burger, Shake and a Smile</option>
-                                        <option>Sugar, Spice and all things nice</option>
+                                <div class="row">
+                                    <label style="">Sélectionnez un utilisateur</label>
+                                </div>
+                                <div class="row">
+                                <div class="col-md-8">
+                                    <select id="usersSelect" ng-model="conversation.user2_id" class="selectpicker" data-live-search="true">
                                     </select>
-                                    </div>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -515,6 +340,25 @@
     <!-- /content area -->
 
 </div>
+
+
+<div class="row">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12" id="chat-app">
+                <h1>
+                    BrainSocket.js Example Chat App
+                </h1>
+                <form class="form-inline">
+                    <input type="text" class="input" id="chat-message" placeholder="Typez un message ...">
+                </form>
+                <div id="chat-log">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 
 
@@ -523,10 +367,192 @@
 
 
     @section('script')
-
+<script type="text/javascript" src="../assets/js/brain-socket.min.js"></script>
     <script type="text/javascript">
         $(function () {
-            app.controller("ctrl", ['$scope', 'notificationFactory', '$http', function ($scope, notificationFactory, $http) {
+            app.controller("ctrl", ['$scope', 'notificationFactory', '$http','$timeout', function ($scope, notificationFactory, $http,$timeout) {
+                var user_id = '{{Auth::user()->id}}';
+                app = {};
+                $scope.message = new Object({"_token": "{{ csrf_token() }}"});
+                $scope.conversations = [];
+                $scope.conversation = new Object({"_token": "{{ csrf_token() }}"});
+
+
+                $scope.ajouterMessage = function(conversation)
+                {
+                    $scope.message.isSender = true;
+                    $scope.message.conversation_id = conversation._id;
+                    console.log($scope.message);
+
+                    $.ajax({
+                        url: "{{route('ajouterMessage')}}",
+                        data: $scope.message,
+                        type: "post",
+                        dataType: 'json',
+                        cache: false,
+                        async: false,
+                        success: function (result) {
+                            if(conversation.messages == undefined) conversation.messages = [];
+                            conversation.messages.push(result);
+
+                            app.BrainSocket.message('generic.event',
+                                {
+                                    'message':$scope.message.message,
+                                    'conversationObject':conversation,
+                                    'messageObject':result,
+                                    'user_id':user_id,
+                                }
+                            );
+                        },
+                        error: function (error) {
+                            notificationFactory.error("Erreur lors de l'ajout de la message !", "Erreur");
+                        }
+                    });
+                    $scope.message = new Object({"_token": "{{ csrf_token() }}"});
+
+
+                }
+
+
+                $scope.ajouterConversation = function()
+                {
+                    console.log($scope.conversation);
+
+                    $.ajax({
+                            url: "{{route('ajouterConversation')}}",
+                            data: $scope.conversation,
+                            type: "post",
+                            dataType: 'json',
+                            cache: false,
+                            async: false,
+                            success: function (result) {
+                                notificationFactory.success();
+                                $scope.conversation.user2 = result.user2;
+                                $scope.conversation._id = result._id;
+                                $scope.conversations.unshift($scope.conversation);
+                            },
+                            error: function (error) {
+                                notificationFactory.error("Erreur lors de l'ajout de la conversation !", "Erreur");
+                            }
+                        });
+                    $scope.conversation = new Object({"_token": "{{ csrf_token() }}"});
+
+
+                }
+
+
+
+                $scope.getConversations = function () {
+                        $.ajax({
+                            url: "{{route('listeConversations')}}", type: "get", dataType: 'json', cache: false, async: false,
+                            success: function (result) {
+                                console.log(result);
+                                $scope.conversations = result;
+                            }, error: function (error) {
+                                notificationFactory.error("Erreur lors du chargement des conversations !", "Erreur");
+                            }
+                        });
+
+                }
+
+                    $scope.getConversations();
+
+
+
+
+                $scope.getUsers = function () {
+                    $.ajax({
+                        url: "{{route('listeUsers')}}", type: "get", dataType: 'json', cache: false, async: false,
+                        success: function (result) {
+                            console.log(result);
+                            $('#usersSelect').empty();
+                            for(i=0;i<result.length;i++){
+                                user = result[i];
+                                if(user._id != undefined && user.fullName != undefined)
+                                {
+                                    $('#usersSelect').append(
+                                        $('<option></option>').val(user._id).html(user.fullName));
+                                }
+
+                            }
+
+                        }, error: function (error) {
+                            notificationFactory.error("Erreur lors du chargement des membres !", "Erreur");
+                        }
+                    });
+
+
+                }
+
+                $scope.getUsers();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                ///////////////////////////////////////////////////// Socket
+
+
+
+                app.BrainSocket = new BrainSocket(
+                    new WebSocket('ws://localhost:8080'),
+                    new BrainSocketPubSub()
+                );
+
+
+                // modifié par jebli
+                app.BrainSocket.Event.listen('generic.event',function(msg){
+                    console.log(msg);
+                    if(msg.client.data.user_id == user_id){
+                        $('#chat-log').append('<div class="alert alert-success">Me: '+msg.client.data.message+'</div>');
+                    }else{
+
+                        for(i=0;i<$scope.conversations.length;i++){
+                            c = $scope.conversations[i];
+                            if(c._id == msg.client.data.conversationObject._id)
+                            {
+                                msg.client.data.messageObject.isSender = false;
+                                c.messages.push(msg.client.data.messageObject);
+                                break;
+                            }
+                        }
+                        $scope.$apply();
+                       // msg.client.data.conversationObject.messages.push(msg.client.data.messageObject);
+                      //  $('#chat-log').append('<div class="alert alert-info">Them: '+msg.client.data.message+'</div>');
+                    }
+                });
+
+
+                app.BrainSocket.Event.listen('app.success',function(data){
+                    console.log('An app success message was sent from the ws server!');
+                    console.log(data);
+                });
+                app.BrainSocket.Event.listen('app.error',function(data){
+                    console.log('An app error message was sent from the ws server!');
+                    console.log(data);
+                });
+                $('#chat-message').keypress(function(event) {
+                    if(event.keyCode == 13){
+                        app.BrainSocket.message('generic.event',
+                            {
+                                'message':$scope.message,
+                                'user_id':user_id,
+                            }
+                        );
+                        $(this).val('');
+                    }
+                    return event.keyCode != 13; }
+                );
 
             }]);
             angular.bootstrap(document, ['AdminModule']);

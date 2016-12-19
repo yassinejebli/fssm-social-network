@@ -49,6 +49,8 @@ Route::get('/index', [
     'middleware' => 'auth'
 ]);
 
+
+
 Route::get('/test', [
     'uses' => 'UserController@getAll',
     'as' => 'test',
@@ -58,6 +60,12 @@ Route::get('/test', [
 Route::get('/calendar', function () {
     return view('home');
 })->name('calendar');
+
+
+
+Route::get('/conversations', function () {
+    return view('conversation');
+})->name('conversations');
 
 //Auth::routes();
 //
@@ -76,9 +84,31 @@ Route::post('/ajouterFormation',[
     'uses' => 'FormationController@ajouterFormation',
     'as' => 'ajouterFormation'
 ]);
+
+Route::post('/ajouterMessage',[
+    'uses' => 'MessageController@ajouterMessage',
+    'as' => 'ajouterMessage'
+]);
+
+Route::post('/ajouterConversation',[
+    'uses' => 'ConversationController@ajouterConversation',
+    'as' => 'ajouterConversation'
+]);
+
 Route::get('/listeFormations',[
     'uses' => 'FormationController@listeFormations',
     'as' => 'listeFormations'
+]);
+
+Route::get('/listeConversations',[
+    'uses' => 'ConversationController@listeConversations',
+    'as' => 'listeConversations'
+]);
+
+
+Route::get('/listeUsers',[
+    'uses' => 'UserController@listeUsers',
+    'as' => 'listeUsers'
 ]);
 
 Route::delete('/supprimerFormation',[

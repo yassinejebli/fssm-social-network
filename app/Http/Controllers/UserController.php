@@ -24,14 +24,14 @@ class UserController extends Controller
         return view('login');
     }
     public function postSignIn(Request $request)
-{
-    $users = DB::collection('users_collection')->get();
-    if (Auth::attempt(['email' =>$request['email'],
-        'password' => $request["password"]])) {
-        return redirect()->route('index');
+    {
+        $users = DB::collection('users_collection')->get();
+        if (Auth::attempt(['email' =>$request['email'],
+            'password' => $request["password"]])) {
+            return redirect()->route('index');
+        }
+        return redirect()->back();
     }
-    return redirect()->back();
-}
 
     public function postSignUp(Request $request)
     {
@@ -78,6 +78,18 @@ class UserController extends Controller
     public function getProfile()
     {
         return view('profile');
+    }
+
+
+    //added by jebli
+
+    public function listeUsers(Request $request)
+    {
+        //  dd($request);
+        // Formation::create($request->all());
+        $users = \App\User::where('_id','<>',Auth::user()->id)->get();
+       // dd($users);
+        echo json_encode($users);
     }
 
 }

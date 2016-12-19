@@ -8,20 +8,19 @@ use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
 class Conversation extends Eloquent
 {
-    protected $collection = 'converstions_collection';
+    protected $collection = 'conversations_collection';
     protected $connection = 'mongodb';
-    protected  $fillable = ['user1','user2','messages'];
+    protected  $fillable = ['user','user2_id','messages'];
 
-    public function user1()
+    public function user()
     {
         return $this->belongsTo("App\User");
     }
 
     public function user2()
     {
-        return $this->belongsTo("App\User");
+        return $this->belongsTo("App\User",'user2_id');
     }
-
 
     public function messages()
     {
