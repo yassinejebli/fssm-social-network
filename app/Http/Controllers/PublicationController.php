@@ -15,10 +15,12 @@ class PublicationController extends Controller
 
  public function ajouterPublication(Request $request)
  {
-   //  dd($request);
-    // Formation::create($request->all());
-//    Auth::user()->publications()->create($request->all());
-
+     $file = Input::file('publication.photo');
+     $fileName =  null;
+     if($file){
+         $fileName = time() . '.' . $file->getClientOriginalExtension();
+         Image::make($file)->resize(300, 300)->save(public_path('uploads/avatars' . $fileName));
+     }
      echo json_encode(Auth::user()->publications()->create($request->all()));
  }
 

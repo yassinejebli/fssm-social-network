@@ -172,6 +172,10 @@
                             <div class="panel panel-flat timeline-content">
                                 <div class="panel-heading">
                                     <h6 class="panel-title">Nouvelle publication</h6>
+                                    <ul class="nav nav-tabs  nav-justified icon-tab">
+                                        <li class="active"><input type="file" class="file-styled-primary" ng-model="publication.photo">
+                                        </li>
+                                    </ul>
                                     <div class="form-group">
                                         <img src="/uploads/avatars{{ Auth::user()->photo }}" class=" img-responsive"
                                              alt="" width="40" height="40"/>
@@ -573,7 +577,7 @@
                         cache: false,
                         async: false,
                         success: function (result) {
-                            console.log(result);
+                            console.log($scope.publication);
                             notificationFactory.success();
                             $scope.publications.unshift(result);
                         },
