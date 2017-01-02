@@ -76,7 +76,7 @@ class Directory extends Renderer
         } else {
             if ($node instanceof DirectoryNode) {
                 $data['name'] = sprintf(
-                    '<a href="%s/index.blade.php">%s</a>',
+                    '<a href="%s/index.html">%s</a>',
                     $node->getName(),
                     $node->getName()
                 );

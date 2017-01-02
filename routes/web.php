@@ -70,6 +70,11 @@ Route::get('/profile',[
     'middleware' => 'auth'
 ]);
 
+Route::get('/profileUser/{id}',[
+    'uses' => 'UserController@getProfileFreind',
+    'as' => 'profileUser',
+    'middleware' => 'auth'
+]);
 //formations
 Route::post('/ajouterFormation',[
     'uses' => 'FormationController@ajouterFormation',
@@ -136,9 +141,89 @@ Route::get('/listePublications',[
     'as' => 'listePublications'
 ]);
 
+Route::post('/chargerImage',[
+    'uses' => 'PublicationController@chargerImage',
+    'as' => 'chargerImage'
+]);
 Route::post('/ajouterPublication',[
     'uses' => 'PublicationController@ajouterPublication',
     'as' => 'ajouterPublication'
 ]);
+
+Route::get('/listePublicationsFriend',[
+    'uses' => 'PublicationController@listePublicationsFriend',
+    'as' => 'listePublicationsFriend'
+]);
+
+//commentaires
+
+Route::get('/listeommentaires',[
+    'uses' => 'PublicationController@listePublications',
+    'as' => 'listePublications'
+]);
+
+
+
+Route::post('/ajouterCommentaire',[
+    'uses' => 'PublicationController@ajouterCommentaire',
+    'as' => 'ajouterCommentaire'
+]);
+
+// conversations
+
+Route::get('/conversations', function () {
+    return view('conversation');
+})->name('conversations');
+Route::get('/listeConversations',[
+    'uses' => 'ConversationController@listeConversations',
+    'as' => 'listeConversations'
+]);
+
+
+
+
+
+
+
+Route::post('/ajouterMessage',[
+    'uses' => 'MessageController@ajouterMessage',
+    'as' => 'ajouterMessage'
+]);
+
+Route::post('/ajouterConversation',[
+    'uses' => 'ConversationController@ajouterConversation',
+    'as' => 'ajouterConversation'
+]);
+
+
+
+Route::get('/getCountUnseenMessages',[
+    'uses' => 'MessageController@getCountUnseenMessages',
+    'as' => 'getCountUnseenMessages'
+]);
+
+Route::get('/listeUsers',[
+    'uses' => 'UserController@listeUsers',
+    'as' => 'listeUsers'
+]);
+
+
+Route::post('/seenConversation',[
+    'uses' => 'MessageController@seenConversation',
+    'as' => 'seenConversation'
+]);
+
+//offres routes
+Route::group(["prefix"=>"/publications"],function(){
+    Route::get("/addOffre","PublicationsController@addOffre");
+    Route::post("/saveOffre","PublicationsController@saveOffre");
+    Route::get("/addEvenement","PublicationsController@saveEvenement");
+    Route::post("/saveEvenement","PublicationsController@saveEvenement");
+
+    Route::get("/editOffre/{id}","PublicationsController@editOffre");
+    Route::post("/saveOModifications","PublicationsController@saveOModifications");
+
+    Route::post("/deletePublication","PublicationsController@deletePublication")->name("deletePublication");
+});
 
 

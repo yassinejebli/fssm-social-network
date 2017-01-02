@@ -9,12 +9,16 @@
     <!-- Global stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet"
           type="text/css">
-    <link href="../assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
-    <link href="../assets/css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="../assets/css/core.css" rel="stylesheet" type="text/css">
-    <link href="../assets/css/components.css" rel="stylesheet" type="text/css">
-    <link href="../assets/css/colors.css" rel="stylesheet" type="text/css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/core.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/components.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/colors.css" rel="stylesheet" type="text/css">
+    <link href="/css/toastr.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/emoji.min.css" rel="stylesheet" type="text/css">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css">
     <!-- /global stylesheets -->
 
 
@@ -41,7 +45,6 @@
 
         </ul>
 
-
     </div>
 </div>
 <!-- /main navbar -->
@@ -61,11 +64,12 @@
                 <div class="sidebar-user-material">
                     <div class="category-content">
                         <div class="sidebar-user-material-content">
-                            <a href="#"><img src="/uploads/avatars{{ Auth::user()->photo  }}" class=" img-responsive" alt=""></a>
+                            <a href="#"><img src="/uploads/avatars{{ Auth::user()->photo }}" class=" img-responsive"
+                                             alt=""></a>
                             @if(Auth::check())
 
                             <h6>{{strtoupper(Auth::user()->fullName)}} </h6>
-                                <span class="text-size-small">{{ Auth::user()->email }}</span>
+                            <span class="text-size-small">{{ Auth::user()->address }}</span>
                         </div>
                         @endif
 
@@ -77,8 +81,8 @@
                     <div class="navigation-wrapper collapse" id="user-nav">
                         <ul class="navigation">
                             <li><a href="{{ route('profile') }}"><i class="icon-user-plus"></i> <span>Mon profile</span></a></li>
-                            <li><a href="#"><i class="icon-comment-discussion"></i> <span><span
-                                    class="badge bg-teal-400 pull-right">58</span> Messages</span></a></li>
+                            <li><a href="{{route('conversations')}}"><i class="icon-comment-discussion"></i> <span><span
+                                                class="badge bg-teal-400 pull-right" id="nbrUnseenMessages">0</span> Messages</span></a></li>
                             <li class="divider"></li>
                             <li><a href=""><i class="icon-cog5"></i> <span>Paramétres</span></a></li>
                             <li><a href="{{ route('login') }}"><i class="icon-switch2"></i> <span>Se déconnecter</span></a></li>
@@ -95,7 +99,7 @@
 
                             <!-- Main -->
 
-                            <li><a href="../index.html"><i class="icon-magazine"></i> <span>Actualité</span></a>
+                            <li><a href="{{ route('index') }}"><i class="icon-magazine"></i> <span>Actualité</span></a>
                             </li>
                             <li>
                                 <a href="#"><i class="icon-briefcase"></i> <span>Offres</span></a>
@@ -146,14 +150,12 @@
 
 
         <!-- Main content -->
-        <div class="content">
-             @yield('content')
-        </div>
+            @yield('content')
         <!-- /main content -->
 
-        <div class="footer text-muted">
-            © 2016. <a href="{{ route('index') }}">FSSM Social Network</a> by <a href="https://bitbucket.org/fssm/profile/members">ISI Team</a>
-        </div>
+<!--        <div class="footer text-muted">-->
+<!--            © 2016. <a href="{{ route('index') }}">{{Auth::user()->email}}</a> by <a href="{{ route('index') }}">ISI Team</a>-->
+<!--        </div>-->
     </div>
     <!-- /page content -->
 
@@ -164,37 +166,253 @@
 </body>
 
 <!-- Core JS files -->
-<script type="text/javascript" src="../assets/js/plugins/loaders/pace.min.js"></script>
-<script type="text/javascript" src="assets/js/lib/jquery-1.11.min.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/loaders/pace.min.js"></script>
+<script type="text/javascript" src="/assets/js/lib/jquery-1.11.min.js"></script>
 
-<script type="text/javascript" src="../assets/js/core/libraries/bootstrap.min.js"></script>
-<script type="text/javascript" src="../assets/js/plugins/loaders/blockui.min.js"></script>
+<script type="text/javascript" src="/assets/js/core/libraries/bootstrap.min.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/loaders/blockui.min.js"></script>
 <!-- /core JS files -->
 
 <!-- Theme JS files -->
-<script type="text/javascript" src="../assets/js/plugins/visualization/d3/d3.min.js"></script>
-<script type="text/javascript" src="../assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
-<script type="text/javascript" src="../assets/js/plugins/forms/styling/switchery.min.js"></script>
-<script type="text/javascript" src="../assets/js/plugins/forms/styling/uniform.min.js"></script>
-<script type="text/javascript" src="../assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
-<script type="text/javascript" src="../assets/js/plugins/ui/moment/moment.min.js"></script>
-<script type="text/javascript" src="../assets/js/plugins/pickers/daterangepicker.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/visualization/d3/d3.min.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/forms/styling/switchery.min.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/forms/styling/uniform.min.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/ui/moment/moment.min.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/pickers/daterangepicker.js"></script>
 
-<script type="text/javascript" src="../assets/js/core/app.js"></script>
+<!--<script type="text/javascript" src="/assets/js/core/app.js"></script>-->
 
-<script type="text/javascript" src="../assets/js/plugins/ui/ripple.min.js"></script>
-<script type="text/javascript" src="scripts/angular.min.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/ui/ripple.min.js"></script>
+<script type="text/javascript" src="/scripts/angular.min.js"></script>
+<script type="text/javascript" src="/scripts/angular-file-upload.min.js"></script>
 <script type="text/javascript">
 </script>
-<script type="text/javascript" src="scripts/toastr.js"></script>
-<script type="text/javascript" src="scripts/App/app.js"></script>
+<script type="text/javascript" src="/scripts/toastr.js"></script>
+<script type="text/javascript" src="/scripts/App/app.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/forms/validation/validate.min.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/visualization/d3/d3.min.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/forms/styling/switchery.min.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/forms/styling/uniform.min.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/ui/moment/moment.min.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/pickers/daterangepicker.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/forms/selects/select2.min.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/forms/styling/uniform.min.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/uploaders/fileinput.min.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/forms/validation/validate.min.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/pickers/daterangepicker.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/pickers/anytime.min.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/pickers/pickadate/picker.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/pickers/pickadate/picker.date.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/pickers/pickadate/picker.time.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/pickers/pickadate/legacy.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/notifications/bootbox.min.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/notifications/sweet_alert.min.js"></script>
+<script type="text/javascript" src="/assets/js/core/app.js"></script>
 
-<!--<script type="text/javascript" src="assets/js/pages/picker_date.js"></script>-->
-<script type="text/javascript" src="assets/js/plugins/pickers/pickadate/legacy.js"></script>
+<script type="text/javascript" src="/assets/js/pages/uploader_bootstrap.js"></script>
 
+<script type="text/javascript" src="/assets/js/pages/picker_date.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/ui/ripple.min.js"></script>
+<script type="text/javascript" src="../scripts/bootstrap-select.js"></script>
+<script type="text/javascript" src="../scripts/angular-sanitize.min.js"></script>
+
+<script type="text/javascript" src="/scripts/emoji.min.js"></script>
 
 
 @yield('script')
 <!--Layout Script End -->
 <!-- /theme JS files -->
+<script>
+
+    $(window).load(function () {
+        $(".commentIndicator").on("click",
+            function (event) {
+                id = event.target.id;
+                $("#comment" + id).slideToggle(500);
+                $("#comment" + id).addClass("active");
+
+            }
+        );
+    });
+    $(".comment").hide();
+</script>
+<script>
+    $(function () {
+
+
+
+        // Select2 select
+        // ------------------------------
+
+        // Basic
+        $('.select').select2();
+
+
+        //
+        // Select with icons
+        //
+
+        // Format icon
+        function iconFormat(icon) {
+            var originalOption = icon.element;
+            if (!icon.id) {
+                return icon.text;
+            }
+            var $icon = "<i class='icon-" + $(icon.element).data('icon') + "'></i>" + icon.text;
+
+            return $icon;
+        }
+
+        // Initialize with options
+        $(".select-icons").select2({
+            templateResult: iconFormat,
+            minimumResultsForSearch: Infinity,
+            templateSelection: iconFormat,
+            escapeMarkup: function (m) {
+                return m;
+            }
+        });
+
+
+        // Styled form components
+        // ------------------------------
+
+        // Checkboxes, radios
+        $(".styled").uniform({radioClass: 'choice'});
+
+        // File input
+        $(".file-styled").uniform({
+            fileButtonClass: 'action btn bg-pink-400'
+        });
+        $("#selectTypeOffre").on("change", function () {
+            $("#typeOffre").show();
+            if (this.value == 0) {
+                $("#titreFieldSet").text("au stage");
+                $("#dStage").slideDown(400);
+                $("#dEmploi").hide();
+                $("#dFormation").hide();
+            } else if (this.value == 1) {
+                $("#titreFieldSet").text("à l'emploi");
+                $("#dStage").hide();
+                $("#dEmploi").slideDown(400);
+                $("#dFormation").hide();
+            } else {
+                $("#titreFieldSet").text("au formation");
+                $("#dStage").hide();
+                $("#dEmploi").hide();
+                $("#dFormation").slideDown(400);
+            }
+        });
+        $("#typeOffre").hide();
+        @if(isset($offre))
+            $("#selectTypeOffre").change();
+        @endif
+    });
+    function supprimerPublication(id) {
+        swal({
+                title: "Vous etes vraiment sue?",
+                text: "vous ne pouvez pas recuperer cet article si vous la supprimer !",
+                type: "error",
+                showCancelButton: true,
+                confirmButtonColor: "#EF5350",
+                confirmButtonText: "Oui, Supprime la!",
+                cancelButtonText: "Non, Annuler!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    $.ajax({
+                        method: "POST",
+                        url: '{{route('deletePublication')}}',
+                        data: {"_id": id}
+                    }).done(function (msg) {
+                        $("#pub" + id).remove();
+
+
+                    });
+                    swal({
+                        title: "Deleted!",
+                        text: "Your imaginary file has been deleted.",
+                        confirmButtonColor: "#66BB6A",
+                        type: "success"
+                    });
+
+                } else {
+                    swal({
+                        title: "Cancelled",
+                        text: "Your imaginary file is safe :)",
+                        confirmButtonColor: "#2196F3",
+                        type: "error"
+                    });
+                }
+
+            });
+
+
+    }
+
+</script>
+<script>
+    if ($("#imageModificationOffre") != null) {
+        $("#imageModificationOffre").fileinput({
+            browseLabel: 'Browse',
+            browseIcon: '<i class="icon-file-plus"></i>',
+            uploadIcon: '<i class="icon-file-upload2"></i>',
+            removeIcon: '<i class="icon-cross3"></i>',
+            layoutTemplates: {
+                icon: '<i class="icon-file-check"></i>'
+            },
+
+            'initialPreview': [
+                @if(isset($offre) && $offre["typePublication"]==0)
+            "<img src='/uploads/offres/stage{{$offre["image"]}}' class='file-preview-image' >"
+                @elseif(isset($offre) && $offre["typePublication"]==1)
+        "<img src='/uploads/offres/emploi{{$offre["image"]}}' class='file-preview-image' >"
+                @elseif(isset($offre)&& $offre["typePublication"]==2)
+        "<img src='/uploads/offres/formation{{$offre["image"]}}' class='file-preview-image' >"
+                @endif
+    ]
+
+    });
+    }
+
+    if ($("#imageAjoutOffre") != null) {
+        $("#imageAjoutOffre").fileinput({
+            browseLabel: 'Browse',
+            browseIcon: '<i class="icon-file-plus"></i>',
+            uploadIcon: '<i class="icon-file-upload2"></i>',
+            removeIcon: '<i class="icon-cross3"></i>',
+            layoutTemplates: {
+                icon: '<i class="icon-file-check"></i>'
+            },
+            initialCaption: "No file selected"
+        });
+    }
+
+</script>
+
+<script>
+    $(function(){
+
+        getCountUnseenMessages = function () {
+            $.ajax({
+                url: "{{route('getCountUnseenMessages')}}", type: "get", dataType: 'json', cache: false, async: false,
+                success: function (result) {
+                    console.log(result);
+                    $("#nbrUnseenMessages").text(result);
+                }, error: function (error) {
+                    notificationFactory.error("Erreur lors du chargement du nombre de messages non lu !", "Erreur");
+                }
+            });
+
+        }
+
+        getCountUnseenMessages();
+    });
+</script>
 </html>

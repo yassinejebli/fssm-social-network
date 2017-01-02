@@ -1,4 +1,4 @@
-﻿var app = angular.module('AdminModule', []);
+﻿var app = angular.module('AdminModule', ['angularFileUpload','emoji','ngSanitize']);
 
 
 app.factory('notificationFactory', function () {

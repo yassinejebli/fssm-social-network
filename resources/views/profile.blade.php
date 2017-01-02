@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="col-md-12">
+<div class="col-md-12" ng-cloak>
     <div class="user-profile-tab">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs  nav-justified icon-tab">
@@ -172,19 +172,38 @@
                             <div class="panel panel-flat timeline-content">
                                 <div class="panel-heading">
                                     <h6 class="panel-title">Nouvelle publication</h6>
-                                    <ul class="nav nav-tabs  nav-justified icon-tab">
-                                        <li class="active"><input type="file" class="file-styled-primary" ng-model="publication.photo">
-                                        </li>
-                                    </ul>
+
+
+                                        <div class="pull-right" ng-file-drop ng-file-select ng-model="photo" class="drop-box"
+                                             drag-over-class="dragover" ng-multiple="false" allow-dir="false"
+                                             accept="image/*,application/pdf" ><img src="/uploads/upload.png" /></div>
+                                        <div ng-no-file-drop>File Drag/Drop is not supported for this browser</div>
+                                        <div class="input-group">
+<!--                                            <input type="text" disabled class="form-control" ng-model="publication.photo" placeholder="Téléchargez l'image dans le contrôle suivant" />-->
+                                            <button class="input-group-addon btn btn-danger" ng-click="clearLogo();"><i class="mdi-action-highlight-remove"></i></button>
+                                        </div>
+
+
+
+
+<!--                                    <ul class="nav nav-tabs  nav-justified icon-tab">-->
+<!--                                        <li class="active"><input type="file" class="file-styled-primary" ng-model="photo" name="photo" id="photo">-->
+<!--                                        </li>-->
+<!--                                    </ul>-->
                                     <div class="form-group">
                                         <img src="/uploads/avatars{{ Auth::user()->photo }}" class=" img-responsive"
                                              alt="" width="40" height="40"/>
                                         <textarea class="form-control" name="body" id="new-post"
                                                   placeholder="Exprimez vous"
                                                   rows="5" ng-model="publication.contenu"></textarea>
-                                        <button type="submit" class="btn btn-primary pull-right"
-                                                ng-click="ajouterPublication()">Publier
-                                        </button>
+<!--                                        <div ng-bind-html="publication.contenu | emoji"></div>-->
+                                        <div class="row">
+                                            <button type="submit" class="btn btn-primary pull-right"
+                                                    ng-click="ajouterPublication()" style="margin-top: 10px">Publier
+                                            </button>
+                                        </div>
+                                        <img class="img-responsive img-thumbnail" src="/uploads/avatars@{{publication.photo}}" alt="" ng-show="publication.photo!=null" style="width: 100px ; height: 100px ">
+
                                     </div>
                                 </div>
                             </div>
@@ -202,37 +221,82 @@
                                     <a class="heading-elements-toggle"><i class="icon-more"></i></a></div>
 
                                 <div class="panel-body">
-                                    <a href="#" class="display-block content-group">
-                                        <img src="assets/images/cover.jpg" class="img-responsive content-group" alt="">
-                                    </a>
+<!--                                    <a href="#" class="display-block content-group">-->
+<!--                                        <img src="/uploads/avatars@{{ p.photo }}" class="img-responsive content-group" alt="" style="width: 100%; height:100%">-->
+<!--                                    </a>-->
+                                    <div class="display-block content-group" ng-show="p.photo.indexOf('pdf') != -1">
+                                        <iframe ng-src="@{{p.photo}}" style="width: 100%; height:300px"></iframe>
+                                    </div>
 
-                                    <h6 class="content-group">
-                                        <i class="icon-comment-discussion position-left"></i>
-                                        <a href="#">Jason Ansley</a> commented:
-                                    </h6>
+                                    <div class="display-block content-group" ng-show="p.photo.indexOf('.png') != -1 || p.photo.indexOf('.PNG') != -1 || p.photo.indexOf('.jpg') != -1 || p.photo.indexOf('.JPG') != -1">
+                                        <img src="@{{p.photo}}" class="img-responsive content-group" alt="" style="width: 100%; height:300px">
+                                    </div>
+
+<!--                                    <h6 class="content-group">-->
+<!--                                        <i class="icon-comment-discussion position-left"></i>-->
+<!--                                        <a href="#">Jason Ansley</a> commented:-->
+<!--                                    </h6>-->
 
                                     <blockquote>
-                                        <p  ng-bind="p.contenu"></p>
+                                        <p  ng-bind-html="p.contenu | emoji"></p>
                                         <footer>{{Auth::user()->fullName}} <cite title="Source Title">@{{ p.created_at | date : 'HH:mm'}}</cite></footer>
                                     </blockquote>
                                 </div>
 
                                 <div class="panel-footer panel-footer-transparent">
                                     <div class="heading-elements">
-                                        <ul class="list-inline list-inline-condensed heading-text">
-                                            <li><a href="#" class="text-default"><i class="icon-eye-open position-left"></i>
-                                                    0</a></li>
-                                            <li><a href="#" class="text-default"><i
-                                                            class="icon-comment-discussion position-left"></i> 0</a>
+                                                   <span class="heading-btn pull-left">
+                                                        <span class="text-default commentIndicator"
+                                                              id="@{{p._id}}"><i
+                                                               class="icon-comment-discussion position-left"></i>@{{p.commentaires.length}} </span>
+                                        </span>
+
+                                    </div>
+
+                                    <div id="comment@{{p._id}}" class="comment">
+                                    <div class="panel-heading">
+                                        <h6 class="panel-title">Commentaires</h6>
+                                    </div>
+
+                                    <div class="panel-body">
+                                        <ul class="media-list chat-list content-group" style="max-height:200px;">
+
+                                            <li class="media" ng-repeat="c in p.commentaires">
+                                                <div class="media-left">
+                                                        <a href="/profileUser/@{{c.user._id}}">
+                                                        <img src="/uploads/avatars@{{c.user.photo}}"
+                                                             class="img-circle" alt="">
+                                                    </a>
+                                                </div>
+
+                                                <div class="media-body">
+
+                                                    <div class="media-content"><a class="media-link" href="#">@{{c.user.fullName}} </a> <span ng-bind-html="c.contenu | emoji"></span>
+                                                    </div>
+                                                    <span class="media-annotation display-block mt-10">@{{c.created_at | date:'EEEE, MMMM d, y  HH:mm'}} <a
+                                                                href="#"><i
+                                                                    class="icon-pin-alt position-right text-muted"></i></a></span>
+                                                </div>
                                             </li>
+
                                         </ul>
 
-                                        <span class="heading-btn pull-right">
-														<a href="#" class="btn btn-link legitRipple">Read post <i
-                                                                    class="icon-arrow-right14 position-right"></i></a>
-													</span>
+
+                                        <div class="row">
+
+                                                    <textarea name="enter-message" class="form-control content-group"
+                                                              rows="2" cols="1" placeholder="Saisir votre commentaire" ng-model="p.commentaire.contenu"></textarea>
+
+                                            <button type="submit" class="btn btn-primary pull-right"
+                                                    ng-click="ajouterCommentaire(p)" style="margin-top: 10px">Commenter
+                                            </button>
+
+
+                                        </div>
                                     </div>
-                                    <a class="heading-elements-toggle"><i class="icon-more"></i></a></div>
+                                </div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -556,19 +620,25 @@
 
     <script type="text/javascript">
         $(function () {
-            app.controller("ctrl", ['$scope', 'notificationFactory', '$http', function ($scope, notificationFactory, $http) {
+            app.controller("ctrl", ['$scope', 'notificationFactory', '$http', '$upload', function ($scope, notificationFactory, $http, $upload) {
                 $scope.formation = new Object({"_token": "{{ csrf_token() }}"});
                 $scope.experience = new Object({"_token": "{{ csrf_token() }}"});
                 $scope.competence = new Object({"_token": "{{ csrf_token() }}"});
                 $scope.langue = new Object({"_token": "{{ csrf_token() }}"});
                 $scope.publication = new Object({"_token": "{{ csrf_token() }}"});
+                $scope.commentaire = new Object({"_token": "{{ csrf_token() }}"});
                 $scope.formations = [];
                 $scope.experiences = [];
                 $scope.competences = [];
                 $scope.langues = [];
                 $scope.publications = [];
+                $scope.getSrc = function (src) {
+                    return "/uploads/avatars"+src;
+                }
+                //$scope.commentaires = [];
                 $scope.ajouterPublication = function () {
                     //console.log($scope.formation);
+                    $scope.publication.typePublication = "3";
                     $.ajax({
                         url: "{{route('ajouterPublication')}}",
                         data: $scope.publication,
@@ -578,7 +648,10 @@
                         async: false,
                         success: function (result) {
                             console.log($scope.publication);
+
                             notificationFactory.success();
+                            result.created_at = new Date(result.created_at);
+                            result.photo = "uploads/avatars"+result.photo;
                             $scope.publications.unshift(result);
                         },
                         error: function (error) {
@@ -588,6 +661,34 @@
 
 
                     $scope.publication = new Object({"_token": "{{ csrf_token() }}"});
+
+                }
+
+                $scope.ajouterCommentaire = function (p) {
+                    p.commentaire._token='{{ csrf_token()}}';
+                    p.commentaire.user_id="{{Auth::user()->id}}";
+                    p.commentaire.publication_id=p._id;
+                    $.ajax({
+                        url: "{{route('ajouterCommentaire')}}",
+                        data: p.commentaire,
+                        type: "post",
+                        dataType: 'json',
+                        cache: false,
+                        async: false,
+                        success: function (result) {
+                            console.log(p.commentaire);
+
+                            notificationFactory.success();
+                            result.created_at = new Date(result.created_at);
+                            p.commentaires.push(result);
+                        },
+                        error: function (error) {
+                            notificationFactory.error("Erreur lors de l'ajout de commentaire !", "Erreur");
+                        }
+                    });
+
+
+                    p.commentaire = new Object();
 
                 }
                 $scope.ajouterFormation = function () {
@@ -741,7 +842,12 @@
                         success: function (result) {
                             console.log(result)
                             for (i = 0; i < result.length; i++) {
+                                result[i].photo = "/uploads/avatars"+result[i].photo;
                                 result[i].created_at = new Date(result[i].created_at);
+                                for(k = 0; k < result[i].commentaires.length; k++){
+                                    result[i].commentaires[k].created_at = new Date(result[i].commentaires[k].created_at);
+
+                                }
                             }
                             $scope.publications = result;
                         },
@@ -750,6 +856,26 @@
                         }
                     });
                 }
+
+//                $scope.getCommentairess = function () {
+//                    $.ajax({
+//                        url: "{{route('listePublications')}}",
+//                        type: "get",
+//                        dataType: 'json',
+//                        cache: false,
+//                        async: false,
+//                        success: function (result) {
+//                            console.log(result)
+//                            for (i = 0; i < result.length; i++) {
+//                                result[i].created_at = new Date(result[i].created_at);
+//                            }
+//                            $scope.publications = result;
+//                        },
+//                        error: function (error) {
+//                            notificationFactory.error("Erreur lors du chargement des experiences !", "Erreur");
+//                        }
+//                    });
+//                }
 
                 $scope.getLangues = function () {
                     $.ajax({
@@ -781,6 +907,34 @@
                         }
                     });
                 }
+
+                $scope.upload = function (files) {
+                    if (files && files.length) {
+                        for (var i = 0; i < files.length; i++) {
+                            var file = files[i];
+                            //file.progressPercentage = 0;
+                            //file.url = "/Themes/@(ViewBag.Theme)/images/nofile.jpg";
+                            $upload.upload({
+                                url: "{{ route('chargerImage') }}",
+                               // fields: { id: $scope.item.Id, dbtype: '' },
+                                file: file
+                            }).progress(function (evt) {
+                                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                                file.progressPercentage = progressPercentage;
+                                console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
+                            }).success(function (data, status, headers, config) {
+                                //file.url = data;
+
+                                $scope.publication.photo = data;
+                                //console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
+                            });
+                        }
+                    }
+                };
+
+                $scope.$watch('photo', function () {
+                    $scope.upload($scope.photo);
+                });
                 $scope.supprimerExperience = function (item) {
                     $.ajax({
                         url: "{{route('supprimerExperience')}}",

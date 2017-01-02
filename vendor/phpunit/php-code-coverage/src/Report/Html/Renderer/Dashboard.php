@@ -294,7 +294,7 @@ class Dashboard extends Renderer
     protected function getActiveBreadcrumb(AbstractNode $node)
     {
         return sprintf(
-            '        <li><a href="index.blade.php">%s</a></li>' . "\n" .
+            '        <li><a href="index.html">%s</a></li>' . "\n" .
             '        <li class="active">(Dashboard)</li>' . "\n",
             $node->getName()
         );

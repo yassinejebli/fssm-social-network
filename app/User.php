@@ -9,11 +9,16 @@ class User extends Eloquent implements Authenticatable {
 
     protected $collection = 'users_collection';
     protected $connection = 'mongodb';
-    protected  $fillable = ['password', 'email','fullName','address','gender','photo','formations','experiences','langues','publications'];
+    protected  $fillable = ['password', 'email','fullName','address','gender','photo','formations','experiences','langues','publications','conversations','messages','commentaires'];
 
     public function formations()
     {
         return $this->hasMany("App\Formation");
+    }
+
+    public function commentaires()
+    {
+        return $this->hasMany("App\Commentaire");
     }
 
     public function competences()
@@ -48,6 +53,17 @@ class User extends Eloquent implements Authenticatable {
     public function emplois()
     {
         return $this->hasMany("App\Emploi");
+    }
+
+    public function conversations()
+    {
+        return $this->hasMany("App\Conversation");
+    }
+
+
+    public function messages()
+    {
+        return $this->hasMany("App\Message");
     }
 
     use \Illuminate\Auth\Authenticatable;
