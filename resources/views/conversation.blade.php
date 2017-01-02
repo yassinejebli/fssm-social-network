@@ -498,6 +498,9 @@
                             return true;
                         }
                     }
+
+                    if($scope.search == undefined || $scope.search == null || $scope.search == "") return true;
+
                     return false;
                 }
 
