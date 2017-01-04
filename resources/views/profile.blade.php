@@ -912,6 +912,7 @@
                     if (files && files.length) {
                         for (var i = 0; i < files.length; i++) {
                             var file = files[i];
+                            file._token = '{{ csrf_token() }}';
                             //file.progressPercentage = 0;
                             //file.url = "/Themes/@(ViewBag.Theme)/images/nofile.jpg";
                             $upload.upload({
