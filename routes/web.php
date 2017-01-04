@@ -13,6 +13,12 @@ use App\Test;
 |
 */
 
+Route::get('/', [
+    'uses' => 'UserController@index',
+    'as' => 'index',
+    'middleware' => 'auth'
+]);
+
 Route::get('/login', [
     'uses' => 'UserController@logout',
     'as' => 'login'
