@@ -491,7 +491,7 @@
 
                 $scope.chercherConversations = function (item) {
                     console.log("item"); console.log(item);
-
+                    if(item.messages == undefined || item.messages == null) return true;
                     for(i=0;i<item.messages.length;i++){
                         if((item.user.fullName.indexOf($scope.search) != -1 || item.user2.fullName.indexOf($scope.search) != -1) && (item.user_id != '{{Auth::user()->id}}' || item.user2_id != '{{Auth::user()->id}}'))
                         {
