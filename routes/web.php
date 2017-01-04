@@ -13,10 +13,7 @@ use App\Test;
 |
 */
 
-Route::get('/', [
-    'uses' => 'UserController@index',
-    'as' => 'index',
-]);
+
 
 Route::get('/login', [
     'uses' => 'UserController@logout',
