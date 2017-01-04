@@ -74,9 +74,9 @@
                                 <span class="media-heading text-semibold">@{{u.fullName}}</span>
                                 <span class="text-size-small text-muted display-block">@{{u.email}}</span>
                             </div>
-                            <div class="media-right media-middle">
+                            <!--div class="media-right media-middle">
                                 <span class="status-mark bg-warning-400"></span>
-                            </div>
+                            </div-->
                         </a>
                     </li>
 
