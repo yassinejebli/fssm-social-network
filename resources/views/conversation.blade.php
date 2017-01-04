@@ -509,7 +509,7 @@
 
 
                 app.BrainSocket = new BrainSocket(
-                    new WebSocket('ws://localhost:8080'),
+                    new WebSocket("ws://<?php echo $_SERVER['SERVER_ADDR']; ?>:8080"),
                     new BrainSocketPubSub()
                 );
 
