@@ -509,7 +509,7 @@
 
 
                 app.BrainSocket = new BrainSocket(
-                    new WebSocket('ws://'+location.host+':8080'),
+                    new WebSocket('ws://'+location.hostname+':8080'),
                     new BrainSocketPubSub()
                 );
 
