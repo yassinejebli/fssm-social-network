@@ -229,7 +229,7 @@
 
                     </ul>
 
-                    <textarea ng-model="message.message" name="enter-message" class="form-control content-group" rows="3" cols="1" placeholder="Tapez votre message..."></textarea>
+                    <textarea ng-model="message.message" name="enter-message" class="form-control content-group" rows="3" cols="1" placeholder="Rechercher un utilisateur ..."></textarea>
 
                     <div class="row">
                         <div class="col-xs-6">
@@ -491,7 +491,9 @@
 
                 $scope.chercherConversations = function (item) {
                     console.log("item"); console.log(item);
-                    if(item.messages == undefined || item.messages == null) return true;
+                    //if(item.messages == undefined || item.messages == null) return true;
+                    if($scope.search == undefined || $scope.search == null || $scope.search == "") return true;
+
                     for(i=0;i<item.messages.length;i++){
                         if((item.user.fullName.indexOf($scope.search) != -1 || item.user2.fullName.indexOf($scope.search) != -1) && (item.user_id != '{{Auth::user()->id}}' || item.user2_id != '{{Auth::user()->id}}'))
                         {
@@ -499,7 +501,6 @@
                         }
                     }
 
-                    if($scope.search == undefined || $scope.search == null || $scope.search == "") return true;
 
                     return false;
                 }
