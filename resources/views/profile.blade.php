@@ -907,8 +907,8 @@
                         }
                     });
                 }
-                var csrf_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-                console.log("tokeeen : "+csrf_token)
+                //var csrf_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+               // console.log("tokeeen : "+csrf_token)
                 $scope.upload = function (files) {
                     if (files && files.length) {
                         for (var i = 0; i < files.length; i++) {
@@ -918,10 +918,10 @@
                                 //fields: { _token : '{{ csrf_token() }}' },
                                 file: file
                             }).progress(function (evt) {
-                                console.log('progress : '+'{{ csrf_token() }}');
-                                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                                console.log('progress : '+'{{csrf_token()}}');
+                               /* var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                                 file.progressPercentage = progressPercentage;
-                                console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
+                                console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);*/
                             }).success(function (data, status, headers, config) {
                                 //file.url = data;
                                 console.log('success : '+'{{ csrf_token() }}');
