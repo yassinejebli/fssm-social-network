@@ -16,7 +16,7 @@
             <div class="category-content">
                 <form action="#">
                     <div class="has-feedback has-feedback-left">
-                        <input type="search" class="form-control" placeholder="Tappez un message ..." ng-model="search">
+                        <input type="search" class="form-control" placeholder="Rechercher ..." ng-model="search">
                         <div class="form-control-feedback">
                             <i class="icon-search4 text-size-base text-muted"></i>
                         </div>
