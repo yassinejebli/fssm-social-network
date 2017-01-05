@@ -916,7 +916,7 @@
                             //file.url = "/Themes/@(ViewBag.Theme)/images/nofile.jpg";
                             $upload.upload({
                                 url: "{{ route('chargerImage') }}",
-                               // fields: { id: $scope.item.Id, dbtype: '' },
+                                fields: { _token : '{{ csrf_token() }}' },
                                 file: file
                             }).progress(function (evt) {
                                 var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
