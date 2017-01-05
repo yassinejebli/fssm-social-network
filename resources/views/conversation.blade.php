@@ -478,7 +478,7 @@
                     if($scope.search == undefined || $scope.search == null || $scope.search == "") return true;
 
                     for(i=0;i<item.messages.length;i++){
-                        if((item.user.fullName.indexOf($scope.search) != -1 || item.user2.fullName.indexOf($scope.search) != -1) && (item.user_id == '{{Auth::user()->id}}' || item.user2_id == '{{Auth::user()->id}}'))
+                        if((item.user.fullName.toLowerCase().indexOf($scope.search) != -1 || item.user2.fullName.toLowerCase().indexOf($scope.search) != -1) && (item.user_id == '{{Auth::user()->id}}' || item.user2_id == '{{Auth::user()->id}}'))
                         {
                             return true;
                         }
