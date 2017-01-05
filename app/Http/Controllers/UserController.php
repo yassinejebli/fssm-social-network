@@ -64,7 +64,7 @@ class UserController extends Controller
 //        }
 //        dd("no file");
 
-        return view('login');
+        return redirect()->route('login');
     }
 
     public function logout()
