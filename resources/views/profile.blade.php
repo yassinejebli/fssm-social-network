@@ -907,14 +907,16 @@
                         }
                     });
                 }
-
+                var csrf_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                console.log("tokeeen : "+csrf_token)
                 $scope.upload = function (files) {
                     if (files && files.length) {
                         for (var i = 0; i < files.length; i++) {
                             var file = files[i];
-                            //file.progressPercentage = 0;
-                            //file.url = "/Themes/@(ViewBag.Theme)/images/nofile.jpg";
                             $upload.upload({
+                                headers : {
+                                    'X-CSRF-TOKEN' : csrf_token
+                                },
                                 url: "{{ route('chargerImage') }}",
                                 fields: { _token : '{{ csrf_token() }}' },
                                 file: file
