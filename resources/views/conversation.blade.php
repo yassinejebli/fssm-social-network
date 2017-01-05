@@ -126,7 +126,7 @@
 
 
 <!-- Main content -->
-<div class="content-wrapper">
+<div class="content-wrapper" ng-cloak>
 
     <!-- Page header -->
     <div class="page-header page-header-default">
