@@ -919,19 +919,20 @@
                                 fields: { _token : '{{ csrf_token() }}' },
                                 file: file
                             }).progress(function (evt) {
+                                console.log('progress : '+'{{ csrf_token() }}');
                                 var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                                 file.progressPercentage = progressPercentage;
                                 console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
                             }).success(function (data, status, headers, config) {
                                 //file.url = data;
-
+                                console.log('success : '+'{{ csrf_token() }}');
                                 $scope.publication.photo = data;
                                 //console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
                             });
                         }
                     }
                 };
-
+            console.log('{{ csrf_token() }}');
                 $scope.$watch('photo', function () {
                     $scope.upload($scope.photo);
                 });
