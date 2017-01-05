@@ -20,11 +20,11 @@ Route::get('/login', [
     'as' => 'login'
 ]);
 
-Route::post('/postLogin',[
+/*Route::post('/postLogin',[
     'uses' => 'UserController@postLogin',
     'as' => 'postLogin'
 ]);
-
+*/
 
 Route::post('/postSignUp',[
     'uses' => 'UserController@postSignUp',
