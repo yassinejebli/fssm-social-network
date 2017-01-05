@@ -27,8 +27,9 @@ class PublicationController extends Controller
         echo json_encode(Commentaire::with("user")->where("_id",$createdComment->_id)->get()->first());
     }
 
- public function chargerImage()
+ public function chargerImage(Request $request)
  {
+     $token = Request::header('X-CSRF-TOKEN');
      $file = Input::file('file');
      $fileName =  null;
      if($file){
