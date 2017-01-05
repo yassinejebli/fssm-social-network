@@ -915,7 +915,7 @@
                             var file = files[i];
                             $upload.upload({
                                 url: "{{ route('chargerImage') }}",
-                                fields: { _token : '{{ csrf_token() }}' },
+                                //fields: { _token : '{{ csrf_token() }}' },
                                 file: file
                             }).progress(function (evt) {
                                 console.log('progress : '+'{{ csrf_token() }}');
