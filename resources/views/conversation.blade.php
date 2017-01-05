@@ -290,23 +290,6 @@
 </div>
 
 
-<div class="row" ng-hide="true">
-    <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="span12" id="chat-app">
-                <h1>
-                    BrainSocket.js Example Chat App
-                </h1>
-                <form class="form-inline">
-                    <input type="text" class="input" id="chat-message" placeholder="Typez un message ...">
-                </form>
-                <div id="chat-log">
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection
 
 
@@ -560,18 +543,7 @@
                     console.log('An app error message was sent from the ws server!');
                     console.log(data);
                 });
-                $('#chat-message').keypress(function(event) {
-                    if(event.keyCode == 13){
-                        app.BrainSocket.message('generic.event',
-                            {
-                                'message':$scope.message,
-                                'user_id':user_id,
-                            }
-                        );
-                        $(this).val('');
-                    }
-                    return event.keyCode != 13; }
-                );
+
 
             }]);
             angular.bootstrap(document, ['AdminModule']);
