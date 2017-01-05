@@ -29,6 +29,8 @@ class PublicationController extends Controller
 
  public function chargerImage(Request $request)
  {
+     echo "ok";
+     die();
      $token = Request::header('X-CSRF-TOKEN');
      $file = Input::file('file');
      $fileName =  null;
