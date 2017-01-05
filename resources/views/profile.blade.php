@@ -914,9 +914,6 @@
                         for (var i = 0; i < files.length; i++) {
                             var file = files[i];
                             $upload.upload({
-                                headers : {
-                                    'X-CSRF-TOKEN' : csrf_token
-                                },
                                 url: "{{ route('chargerImage') }}",
                                 fields: { _token : '{{ csrf_token() }}' },
                                 file: file

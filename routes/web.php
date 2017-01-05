@@ -143,10 +143,14 @@ Route::get('/listePublications',[
     'as' => 'listePublications'
 ]);
 
-Route::post('/chargerImage',[
+/*Route::post('/chargerImage',[
     'uses' => 'PublicationController@chargerImage',
     'as' => 'chargerImage',
-    'middleware' => 'auth'
+]);*/
+
+Route::get('/chargerImage',[
+    'uses' => 'PublicationController@chargerImage',
+    'as' => 'chargerImage',
 ]);
 Route::post('/ajouterPublication',[
     'uses' => 'PublicationController@ajouterPublication',
