@@ -914,7 +914,7 @@
                         for (var i = 0; i < files.length; i++) {
                             var file = files[i];
                             $upload.upload({
-                                url: "{{ route('chargerImage') }}",
+                                url: "{{ route('ajouterPublication') }}",
                                 //fields: { _token : '{{ csrf_token() }}' },
                                 file: file
                             }).progress(function (evt) {
